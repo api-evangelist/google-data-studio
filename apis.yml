@@ -1,0 +1,63 @@
+name: Google Data Studio
+description: Google Data Studio is a free tool that turns your data into informative, easy to read, easy to share, and fully customizable dashboards and reports through data visualization.
+image: https://www.gstatic.com/analytics-suite/header/suite/v2/ic_data_studio.svg
+url: https://datastudio.google.com
+created: 2024-01-01 00:00:00+00:00
+modified: 2024-01-01 00:00:00+00:00
+specificationVersion: '0.18'
+tags:
+- Analytics
+- Visualization
+- Business Intelligence
+- Dashboards
+- Reporting
+- Data
+apis:
+- name: Google Data Studio API
+  description: API for creating, managing, and embedding Data Studio reports and data sources programmatically
+  image: https://www.gstatic.com/analytics-suite/header/suite/v2/ic_data_studio.svg
+  humanURL: https://developers.google.com/datastudio
+  baseURL: https://datastudio.googleapis.com
+  tags:
+  - Reports
+  - Data Sources
+  - Visualization
+  - Embedding
+  properties:
+  - type: Documentation
+    url: https://developers.google.com/datastudio/api
+  - type: OpenAPI
+    url: https://datastudio.googleapis.com/$discovery/rest?version=v1
+  - type: Authentication
+    url: https://developers.google.com/datastudio/api/authentication
+  - type: Guides
+    url: https://developers.google.com/datastudio/guides
+  - type: Connector
+    url: https://developers.google.com/datastudio/connector
+  - type: Embed
+    url: https://developers.google.com/datastudio/embed
+  - type: Pricing
+    url: https://datastudio.google.com/pricing
+  - type: Terms of Service
+    url: https://policies.google.com/terms
+  - type: Privacy Policy
+    url: https://policies.google.com/privacy
+  - type: Support
+    url: https://support.google.com/datastudio
+common:
+- type: Getting Started
+  url: https://support.google.com/datastudio/answer/6283323
+- type: Gallery
+  url: https://datastudio.google.com/gallery
+- type: Community
+  url: https://www.en.advertisercommunity.com/t5/Data-Studio/bd-p/DataStudio
+- type: Blog
+  url: https://cloud.google.com/blog/products/data-analytics
+- type: Status
+  url: https://status.cloud.google.com/
+maintainers:
+- FN: Google Cloud
+  email:
+  - email protected
+  url: https://cloud.google.com
+include: []
