@@ -1,0 +1,213 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "datastudio": "https://developers.google.com/looker-studio/integrate/api/reference/types#",
+    "goog": "https://googleapis.com/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Asset": {
+      "@id": "datastudio:Asset",
+      "@context": {
+        "assetType": {
+          "@id": "datastudio:assetType",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "title": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "owner": {
+          "@id": "schema:creator",
+          "@type": "xsd:string"
+        },
+        "creator": {
+          "@id": "dcterms:creator",
+          "@type": "xsd:string"
+        },
+        "createTime": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "updateTime": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        },
+        "trashed": {
+          "@id": "datastudio:trashed",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "Report": {
+      "@id": "datastudio:Report",
+      "@type": "schema:CreativeWork",
+      "@context": {
+        "name": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "title": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "owner": {
+          "@id": "schema:creator",
+          "@type": "xsd:string"
+        },
+        "createTime": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "updateTime": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "DataSource": {
+      "@id": "datastudio:DataSource",
+      "@type": "schema:DataCatalog",
+      "@context": {
+        "name": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "title": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "owner": {
+          "@id": "schema:creator",
+          "@type": "xsd:string"
+        },
+        "createTime": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "updateTime": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Permissions": {
+      "@id": "datastudio:Permissions",
+      "@context": {
+        "permissions": {
+          "@id": "datastudio:permissions",
+          "@type": "@id"
+        },
+        "etag": {
+          "@id": "goog:etag",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Role": {
+      "@id": "datastudio:Role",
+      "@context": {
+        "VIEWER": "datastudio:Role/VIEWER",
+        "EDITOR": "datastudio:Role/EDITOR",
+        "OWNER": "datastudio:Role/OWNER",
+        "LINK_VIEWER": "datastudio:Role/LINK_VIEWER",
+        "LINK_EDITOR": "datastudio:Role/LINK_EDITOR"
+      }
+    },
+
+    "Member": {
+      "@id": "datastudio:Member",
+      "@type": "schema:Person"
+    },
+
+    "Connector": {
+      "@id": "datastudio:CommunityConnector",
+      "@type": "schema:SoftwareApplication",
+      "@context": {
+        "authType": {
+          "@id": "datastudio:authType",
+          "@type": "xsd:string"
+        },
+        "config": {
+          "@id": "datastudio:config",
+          "@type": "@id"
+        },
+        "schema": {
+          "@id": "datastudio:schema",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "Field": {
+      "@id": "datastudio:Field",
+      "@type": "schema:PropertyValueSpecification",
+      "@context": {
+        "name": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "label": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "dataType": {
+          "@id": "datastudio:dataType",
+          "@type": "xsd:string"
+        },
+        "semanticType": {
+          "@id": "datastudio:semanticType",
+          "@type": "xsd:string"
+        },
+        "conceptType": {
+          "@id": "datastudio:conceptType",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Visualization": {
+      "@id": "datastudio:CommunityVisualization",
+      "@type": "schema:WebApplication",
+      "@context": {
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "AssetType": {
+      "@id": "datastudio:AssetType",
+      "@context": {
+        "REPORT": "datastudio:AssetType/REPORT",
+        "DATA_SOURCE": "datastudio:AssetType/DATA_SOURCE"
+      }
+    }
+  }
+}

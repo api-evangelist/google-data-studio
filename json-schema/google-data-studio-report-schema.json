@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "google-data-studio-report-schema.json",
+  "title": "Looker Studio Report",
+  "description": "Represents a Looker Studio report, which is a customizable dashboard or report asset that connects to data sources and presents data through visualizations. Reports are a subtype of Asset with assetType REPORT.",
+  "type": "object",
+  "required": [
+    "assetType",
+    "name",
+    "title",
+    "owner",
+    "creator",
+    "createTime",
+    "updateTime"
+  ],
+  "properties": {
+    "assetType": {
+      "type": "string",
+      "description": "The asset type, always REPORT for report assets.",
+      "const": "REPORT"
+    },
+    "name": {
+      "type": "string",
+      "description": "The unique name (ID) of the report. Used as the asset identifier in API calls and Linking API URLs."
+    },
+    "title": {
+      "type": "string",
+      "description": "The display title of the report."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the report providing context about its purpose and contents."
+    },
+    "owner": {
+      "type": "string",
+      "description": "The email address of the report owner.",
+      "format": "email"
+    },
+    "creator": {
+      "type": "string",
+      "description": "The email address of the user who originally created the report.",
+      "format": "email"
+    },
+    "createTime": {
+      "type": "string",
+      "description": "Timestamp when the report was created, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "updateTime": {
+      "type": "string",
+      "description": "Timestamp when the report was last modified, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "updateByMeTime": {
+      "type": "string",
+      "description": "Timestamp when the report was last modified by the authenticated user, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "lastViewByMeTime": {
+      "type": "string",
+      "description": "Timestamp when the report was last viewed by the authenticated user, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "trashed": {
+      "type": "boolean",
+      "description": "Indicates whether the report is currently in the trash."
+    }
+  },
+  "additionalProperties": false
+}

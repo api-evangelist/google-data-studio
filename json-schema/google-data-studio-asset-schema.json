@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "google-data-studio-asset-schema.json",
+  "title": "Looker Studio Asset",
+  "description": "Represents a Looker Studio asset such as a report or data source. Assets are the primary resources managed through the Looker Studio API and can be searched, shared, and have their permissions managed programmatically.",
+  "type": "object",
+  "required": [
+    "assetType",
+    "name",
+    "title",
+    "owner",
+    "creator",
+    "createTime",
+    "updateTime"
+  ],
+  "properties": {
+    "assetType": {
+      "type": "string",
+      "description": "The type of the Looker Studio asset.",
+      "enum": [
+        "REPORT",
+        "DATA_SOURCE"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "The unique name (ID) of the asset. This serves as the primary identifier when referencing the asset in API calls."
+    },
+    "title": {
+      "type": "string",
+      "description": "The display title of the asset as shown in the Looker Studio interface."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the asset. Only supported for REPORT asset type."
+    },
+    "owner": {
+      "type": "string",
+      "description": "The email address of the asset owner.",
+      "format": "email"
+    },
+    "creator": {
+      "type": "string",
+      "description": "The email address of the user who originally created the asset.",
+      "format": "email"
+    },
+    "createTime": {
+      "type": "string",
+      "description": "Timestamp when the asset was created, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "updateTime": {
+      "type": "string",
+      "description": "Timestamp when the asset was last modified by any user, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "updateByMeTime": {
+      "type": "string",
+      "description": "Timestamp when the asset was last modified by the user making the API call, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "lastViewByMeTime": {
+      "type": "string",
+      "description": "Timestamp when the asset was last viewed by the user making the API call, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "trashed": {
+      "type": "boolean",
+      "description": "Indicates whether the asset is currently in the trash."
+    }
+  },
+  "additionalProperties": false
+}

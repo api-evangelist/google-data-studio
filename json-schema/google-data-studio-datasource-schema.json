@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "google-data-studio-datasource-schema.json",
+  "title": "Looker Studio Data Source",
+  "description": "Represents a Looker Studio data source, which connects to an external data provider and defines the schema of available fields. Data sources are a subtype of Asset with assetType DATA_SOURCE and can be configured through the Linking API or Community Connectors.",
+  "type": "object",
+  "required": [
+    "assetType",
+    "name",
+    "title",
+    "owner",
+    "creator",
+    "createTime",
+    "updateTime"
+  ],
+  "properties": {
+    "assetType": {
+      "type": "string",
+      "description": "The asset type, always DATA_SOURCE for data source assets.",
+      "const": "DATA_SOURCE"
+    },
+    "name": {
+      "type": "string",
+      "description": "The unique name (ID) of the data source."
+    },
+    "title": {
+      "type": "string",
+      "description": "The display title of the data source."
+    },
+    "owner": {
+      "type": "string",
+      "description": "The email address of the data source owner.",
+      "format": "email"
+    },
+    "creator": {
+      "type": "string",
+      "description": "The email address of the user who originally created the data source.",
+      "format": "email"
+    },
+    "createTime": {
+      "type": "string",
+      "description": "Timestamp when the data source was created, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "updateTime": {
+      "type": "string",
+      "description": "Timestamp when the data source was last modified, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "updateByMeTime": {
+      "type": "string",
+      "description": "Timestamp when the data source was last modified by the authenticated user, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "lastViewByMeTime": {
+      "type": "string",
+      "description": "Timestamp when the data source was last viewed by the authenticated user, in RFC 3339 format.",
+      "format": "date-time"
+    },
+    "trashed": {
+      "type": "boolean",
+      "description": "Indicates whether the data source is currently in the trash."
+    }
+  },
+  "additionalProperties": false
+}

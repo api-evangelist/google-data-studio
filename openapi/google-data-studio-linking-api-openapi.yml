@@ -1,0 +1,382 @@
+openapi: 3.1.0
+info:
+  title: Looker Studio Linking API
+  description: >-
+    The Looker Studio Linking API provides a reliable interface to configure and
+    forward users directly to a pre-configured Looker Studio report via URL
+    parameters, enabling one-click report creation experiences. It allows
+    developers to create dynamic URLs that direct users to pre-configured
+    reports, eliminating manual data source setup. The API supports configuring
+    report templates, data sources, connectors, and report parameters through
+    URL query parameters.
+  version: v1
+  contact:
+    name: Google
+    url: https://developers.google.com/looker-studio/integrate/linking-api
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  x-date: '2026-03-04'
+externalDocs:
+  description: Looker Studio Linking API Documentation
+  url: https://developers.google.com/looker-studio/integrate/linking-api
+servers:
+  - url: https://lookerstudio.google.com
+    description: Looker Studio production server
+tags:
+  - name: Reports
+    description: Operations for creating and configuring pre-built Looker Studio reports
+  - name: Embedding
+    description: Operations for embedding pre-configured Looker Studio reports
+paths:
+  /reporting/create:
+    get:
+      operationId: createReport
+      summary: Create a pre-configured Looker Studio report
+      description: >-
+        Forwards the user to a pre-configured Looker Studio report using URL
+        parameters. The user is presented with a report based on the specified
+        template and data source configuration. Clicking "Edit and share" saves
+        a personal copy to the user's account with full editing and sharing
+        capabilities. Users need view access to the template report. When data
+        source configuration is updated, users need view access to any reusable
+        data sources. Embedded data sources inherit permissions from the report.
+      tags:
+        - Reports
+      parameters:
+        - name: c.reportId
+          in: query
+          required: false
+          description: >-
+            The template report ID. If omitted, a blank report is created.
+          schema:
+            type: string
+        - name: c.pageId
+          in: query
+          required: false
+          description: Specifies the initial page to load in the report.
+          schema:
+            type: string
+        - name: c.mode
+          in: query
+          required: false
+          description: >-
+            Sets the initial mode of the report on load. Accepts "view" or
+            "edit".
+          schema:
+            type: string
+            enum:
+              - view
+              - edit
+        - name: c.explain
+          in: query
+          required: false
+          description: >-
+            Enables the debug/info dialog for troubleshooting. Set to true to
+            display debug information.
+          schema:
+            type: boolean
+        - name: r.reportName
+          in: query
+          required: false
+          description: Overrides the template report name with the specified value.
+          schema:
+            type: string
+        - name: r.measurementId
+          in: query
+          required: false
+          description: Sets Google Analytics Measurement IDs for the report.
+          schema:
+            type: string
+        - name: r.keepMeasurementId
+          in: query
+          required: false
+          description: >-
+            When true, preserves the template's measurement IDs instead of
+            replacing them.
+          schema:
+            type: boolean
+        - name: ds.ds0.datasourceName
+          in: query
+          required: false
+          description: >-
+            Sets the display name of the data source. The alias (e.g., ds0)
+            identifies which data source in the template to configure.
+          schema:
+            type: string
+        - name: ds.ds0.connector
+          in: query
+          required: false
+          description: >-
+            Specifies the connector type for the data source. When set, the
+            data source configuration is completely replaced (all required
+            parameters must be provided). When omitted, only specified
+            parameters are updated while others are inherited from the template.
+            Supported connectors include bigQuery, googleSheets,
+            googleAnalytics, cloudSpanner, looker, searchConsole,
+            googleCloudStorage, and community connectors.
+          schema:
+            type: string
+        - name: ds.ds0.refreshFields
+          in: query
+          required: false
+          description: >-
+            Controls field refresh behavior. Set to true to refresh fields
+            when the data source configuration changes.
+          schema:
+            type: boolean
+        - name: ds.ds0.projectId
+          in: query
+          required: false
+          description: >-
+            Google Cloud project ID. Used with BigQuery and Cloud Spanner
+            connectors.
+          schema:
+            type: string
+        - name: ds.ds0.datasetId
+          in: query
+          required: false
+          description: BigQuery dataset ID. Used with the BigQuery TABLE type.
+          schema:
+            type: string
+        - name: ds.ds0.tableId
+          in: query
+          required: false
+          description: BigQuery table ID. Used with the BigQuery TABLE type.
+          schema:
+            type: string
+        - name: ds.ds0.type
+          in: query
+          required: false
+          description: >-
+            BigQuery query type. Accepts TABLE or CUSTOM_QUERY.
+          schema:
+            type: string
+            enum:
+              - TABLE
+              - CUSTOM_QUERY
+        - name: ds.ds0.sql
+          in: query
+          required: false
+          description: >-
+            SQL query string for BigQuery CUSTOM_QUERY type or Cloud Spanner
+            connector.
+          schema:
+            type: string
+        - name: ds.ds0.spreadsheetId
+          in: query
+          required: false
+          description: Google Sheets spreadsheet ID.
+          schema:
+            type: string
+        - name: ds.ds0.worksheetId
+          in: query
+          required: false
+          description: Google Sheets worksheet ID.
+          schema:
+            type: string
+        - name: ds.ds0.hasHeader
+          in: query
+          required: false
+          description: >-
+            Whether the Google Sheet has a header row. Defaults to true.
+          schema:
+            type: boolean
+        - name: ds.ds0.range
+          in: query
+          required: false
+          description: Cell range to use from the Google Sheet (e.g., A1:D100).
+          schema:
+            type: string
+        - name: ds.ds0.accountId
+          in: query
+          required: false
+          description: Google Analytics account ID.
+          schema:
+            type: string
+        - name: ds.ds0.propertyId
+          in: query
+          required: false
+          description: Google Analytics property ID.
+          schema:
+            type: string
+        - name: ds.ds0.viewId
+          in: query
+          required: false
+          description: >-
+            Google Analytics view ID. Required for Universal Analytics only.
+          schema:
+            type: string
+        - name: ds.ds0.instanceId
+          in: query
+          required: false
+          description: Cloud Spanner instance ID.
+          schema:
+            type: string
+        - name: ds.ds0.databaseId
+          in: query
+          required: false
+          description: Cloud Spanner database ID.
+          schema:
+            type: string
+        - name: ds.ds0.instanceUrl
+          in: query
+          required: false
+          description: Looker instance URL.
+          schema:
+            type: string
+            format: uri
+        - name: ds.ds0.model
+          in: query
+          required: false
+          description: Looker model name.
+          schema:
+            type: string
+        - name: ds.ds0.explore
+          in: query
+          required: false
+          description: Looker explore name.
+          schema:
+            type: string
+        - name: ds.ds0.siteUrl
+          in: query
+          required: false
+          description: Google Search Console site URL.
+          schema:
+            type: string
+            format: uri
+        - name: ds.ds0.tableType
+          in: query
+          required: false
+          description: Search Console table type.
+          schema:
+            type: string
+        - name: ds.ds0.searchType
+          in: query
+          required: false
+          description: Search Console search type.
+          schema:
+            type: string
+        - name: ds.ds0.pathType
+          in: query
+          required: false
+          description: >-
+            Google Cloud Storage path type. Accepts FILE or FOLDER.
+          schema:
+            type: string
+            enum:
+              - FILE
+              - FOLDER
+        - name: ds.ds0.path
+          in: query
+          required: false
+          description: Google Cloud Storage file or folder path.
+          schema:
+            type: string
+        - name: ds.ds0.connectorId
+          in: query
+          required: false
+          description: >-
+            Community connector ID. Used to specify a community-built connector
+            along with any connector-specific parameters.
+          schema:
+            type: string
+      responses:
+        '302':
+          description: >-
+            Redirects the user to the pre-configured Looker Studio report.
+          headers:
+            Location:
+              description: The URL of the configured Looker Studio report.
+              schema:
+                type: string
+                format: uri
+        '400':
+          description: >-
+            Invalid URL parameters. An automatic error dialog is displayed
+            when URL parsing fails.
+  /embed/reporting/create:
+    get:
+      operationId: createEmbeddedReport
+      summary: Create a pre-configured embedded Looker Studio report
+      description: >-
+        Forwards the user to a pre-configured embedded Looker Studio report
+        using URL parameters. This endpoint provides the same functionality as
+        the standard report creation endpoint but optimized for embedding in
+        iframes. Accepts the same parameters as the /reporting/create endpoint.
+      tags:
+        - Embedding
+      parameters:
+        - name: c.reportId
+          in: query
+          required: false
+          description: >-
+            The template report ID. If omitted, a blank report is created.
+          schema:
+            type: string
+        - name: c.pageId
+          in: query
+          required: false
+          description: Specifies the initial page to load in the report.
+          schema:
+            type: string
+        - name: c.mode
+          in: query
+          required: false
+          description: >-
+            Sets the initial mode of the report on load. Accepts "view" or
+            "edit".
+          schema:
+            type: string
+            enum:
+              - view
+              - edit
+        - name: c.explain
+          in: query
+          required: false
+          description: >-
+            Enables the debug/info dialog for troubleshooting.
+          schema:
+            type: boolean
+        - name: r.reportName
+          in: query
+          required: false
+          description: Overrides the template report name.
+          schema:
+            type: string
+        - name: ds.ds0.connector
+          in: query
+          required: false
+          description: >-
+            Specifies the connector type for the data source configuration.
+            When set, the data source is completely replaced. When omitted,
+            only specified parameters are updated.
+          schema:
+            type: string
+        - name: ds.ds0.datasourceName
+          in: query
+          required: false
+          description: Sets the display name of the data source.
+          schema:
+            type: string
+        - name: ds.ds0.refreshFields
+          in: query
+          required: false
+          description: Controls whether fields are refreshed on configuration change.
+          schema:
+            type: boolean
+      responses:
+        '302':
+          description: >-
+            Redirects the user to the embedded pre-configured Looker Studio
+            report.
+          headers:
+            Location:
+              description: The URL of the embedded configured Looker Studio report.
+              schema:
+                type: string
+                format: uri
+        '400':
+          description: >-
+            Invalid URL parameters. An error dialog is displayed when URL
+            parsing fails.

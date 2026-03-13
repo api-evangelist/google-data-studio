@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "google-data-studio-permissions-schema.json",
+  "title": "Looker Studio Permissions",
+  "description": "Access control configuration for a Looker Studio asset. Contains a mapping of roles to their assigned members and an etag for optimistic concurrency control to detect concurrent modifications.",
+  "type": "object",
+  "properties": {
+    "permissions": {
+      "type": "object",
+      "description": "A map of role names to their member lists. Roles include OWNER, EDITOR, VIEWER, LINK_VIEWER, and LINK_EDITOR.",
+      "properties": {
+        "OWNER": {
+          "$ref": "#/$defs/RoleMembers"
+        },
+        "EDITOR": {
+          "$ref": "#/$defs/RoleMembers"
+        },
+        "VIEWER": {
+          "$ref": "#/$defs/RoleMembers"
+        },
+        "LINK_VIEWER": {
+          "$ref": "#/$defs/RoleMembers"
+        },
+        "LINK_EDITOR": {
+          "$ref": "#/$defs/RoleMembers"
+        }
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/RoleMembers"
+      }
+    },
+    "etag": {
+      "type": "string",
+      "description": "Etag for optimistic concurrency control. Include this value in PATCH requests to detect and fail on concurrent modifications."
+    }
+  },
+  "$defs": {
+    "RoleMembers": {
+      "type": "object",
+      "description": "A list of members assigned to a particular role.",
+      "properties": {
+        "members": {
+          "type": "array",
+          "description": "List of member identifiers with type prefixes.",
+          "items": {
+            "$ref": "#/$defs/Member"
+          }
+        }
+      },
+      "required": [
+        "members"
+      ]
+    },
+    "Member": {
+      "type": "string",
+      "description": "A member identifier with a type prefix. Supported formats: user:email@example.com (Google account), group:group@googlegroups.com (Google Group), domain:example.com (organization domain), serviceAccount:sa@project.iam.gserviceaccount.com (Cloud service account), and allUsers (anyone with the link).",
+      "examples": [
+        "user:gus@gmail.com",
+        "group:api@googlegroups.com",
+        "domain:example.com",
+        "serviceAccount:sa@project.iam.gserviceaccount.com",
+        "allUsers"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
