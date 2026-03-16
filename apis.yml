@@ -1,3 +1,4 @@
+aid: google-data-studio
 name: Google Data Studio
 description: >-
   Google Data Studio, now rebranded as Looker Studio, is a free data
@@ -7,9 +8,10 @@ description: >-
   extensibility.
 image: https://www.gstatic.com/analytics-suite/header/suite/v2/ic_data_studio.svg
 url: https://lookerstudio.google.com
-created: 2024-01-01 00:00:00+00:00
-modified: 2026-03-04
-specificationVersion: '0.18'
+created: '2024-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+type: Index
 tags:
 - Analytics
 - Visualization
