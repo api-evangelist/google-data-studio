@@ -32,7 +32,7 @@ paths:
   /assets:search:
     get:
       operationId: searchAssets
-      summary: Search Looker Studio assets
+      summary: Google Data Studio Search Looker Studio assets
       description: >-
         Searches the authenticated user's Looker Studio assets. Supports
         filtering by asset type, title, owner, and trash status. Results are
@@ -139,7 +139,7 @@ paths:
   /assets/{assetName}/permissions:
     get:
       operationId: getPermissions
-      summary: Get asset permissions
+      summary: Google Data Studio Get asset permissions
       description: >-
         Retrieves the access controls (permissions) for a specified Looker Studio
         asset. Returns a Permissions object containing a map of roles to their
@@ -175,7 +175,7 @@ paths:
                 $ref: '#/components/schemas/Error'
     patch:
       operationId: patchPermissions
-      summary: Update asset permissions
+      summary: Google Data Studio Update asset permissions
       description: >-
         Modifies the access controls for a specified Looker Studio asset.
         Replaces the permissions with the provided values. The OWNER role cannot
@@ -235,7 +235,7 @@ paths:
   /assets/{assetName}/permissions:addMembers:
     post:
       operationId: addMembers
-      summary: Add members to an asset
+      summary: Google Data Studio Add members to an asset
       description: >-
         Adds members to a specified role on a Looker Studio asset. Members
         cannot be added to the OWNER role. Members are identified by a type
@@ -290,7 +290,7 @@ paths:
   /assets/{assetName}/permissions:revokeAllPermissions:
     post:
       operationId: revokeAllPermissions
-      summary: Revoke all permissions for members
+      summary: Google Data Studio Revoke all permissions for members
       description: >-
         Removes specified members from all roles on a Looker Studio asset.
         Owners cannot be removed, and the authorized user cannot remove

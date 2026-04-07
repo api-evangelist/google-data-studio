@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Looker Studio Linking API
+  title: Google Data Studio Looker Studio Linking API
   description: >-
     The Looker Studio Linking API provides a reliable interface to configure and
     forward users directly to a pre-configured Looker Studio report via URL
@@ -32,7 +32,7 @@ paths:
   /reporting/create:
     get:
       operationId: createReport
-      summary: Create a pre-configured Looker Studio report
+      summary: Google Data Studio Create a pre-configured Looker Studio report
       description: >-
         Forwards the user to a pre-configured Looker Studio report using URL
         parameters. The user is presented with a report based on the specified
@@ -298,7 +298,7 @@ paths:
   /embed/reporting/create:
     get:
       operationId: createEmbeddedReport
-      summary: Create a pre-configured embedded Looker Studio report
+      summary: Google Data Studio Create a pre-configured embedded Looker Studio report
       description: >-
         Forwards the user to a pre-configured embedded Looker Studio report
         using URL parameters. This endpoint provides the same functionality as
