@@ -24,10 +24,10 @@ servers:
   - url: https://lookerstudio.google.com
     description: Looker Studio production server
 tags:
-  - name: Reports
-    description: Operations for creating and configuring pre-built Looker Studio reports
   - name: Embedding
     description: Operations for embedding pre-configured Looker Studio reports
+  - name: Reports
+    description: Operations for creating and configuring pre-built Looker Studio reports
 paths:
   /reporting/create:
     get:
