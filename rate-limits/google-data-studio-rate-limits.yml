@@ -4,103 +4,108 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Google Data Studio
 providerId: google-data-studio
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Analytics
   - Business Intelligence
-  - Dashboards
-  - Data
   - Reporting
-  - Visualization
+  - Dashboards
+  - Google Cloud
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Google Data Studio API surface. Captures
-  per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values
-  to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: Looker Studio (Data Studio) UI rate limits are enforced server-side and not numerically published;
+  query throughput is principally bounded by the underlying data source. Looker Studio APIs and Looker
+  (the platform) ship with monthly Query API and Admin API call allocations that vary by edition. Per-edition
+  allocations are listed below.
+sources:
+  - https://cloud.google.com/looker/pricing
+  - https://developers.google.com/looker-studio/integrate
+  - https://cloud.google.com/looker/docs/admin-panel-database-connection-pooling
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
+  quotaExceeded: 403
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Google Data Studio API
-      - Looker Studio Linking API
-      - Looker Studio Community Connectors
-      - Looker Studio Community Visualizations
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
+  - name: Looker Query API - Standard edition
+    scope: instance
     metric: requests_per_month
     limit: 1000
     timeFrame: month
-    applies:
-      - Google Data Studio API
-      - Looker Studio Linking API
-      - Looker Studio Community Connectors
-      - Looker Studio Community Visualizations
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Google Data Studio API
-      - Looker Studio Linking API
-      - Looker Studio Community Connectors
-      - Looker Studio Community Visualizations
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
+  - name: Looker Admin API - Standard edition
+    scope: instance
+    metric: requests_per_month
+    limit: 1000
+    timeFrame: month
+  - name: Looker Query API - Enterprise edition
+    scope: instance
     metric: requests_per_month
     limit: 100000
     timeFrame: month
-    applies:
-      - Google Data Studio API
-      - Looker Studio Linking API
-      - Looker Studio Community Connectors
-      - Looker Studio Community Visualizations
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
+  - name: Looker Admin API - Enterprise edition
+    scope: instance
+    metric: requests_per_month
+    limit: 10000
+    timeFrame: month
+  - name: Looker Query API - Embed edition
+    scope: instance
+    metric: requests_per_month
+    limit: 500000
+    timeFrame: month
+  - name: Looker Admin API - Embed edition
+    scope: instance
+    metric: requests_per_month
+    limit: 100000
+    timeFrame: month
+  - name: Conversational Analytics input tokens (Viewer)
+    scope: user
+    metric: tokens_per_month
+    limit: 1000000
+    timeFrame: month
+    notes: Token allocation per Viewer user per month; charged $3/M input tokens above (post-Oct 2026).
+  - name: Conversational Analytics output tokens (Viewer)
+    scope: user
+    metric: tokens_per_month
+    limit: 20000
+    timeFrame: month
+    notes: Charged $20/M output tokens above (post-Oct 2026).
+  - name: Conversational Analytics input tokens (Standard)
+    scope: user
+    metric: tokens_per_month
+    limit: 2000000
+    timeFrame: month
+  - name: Conversational Analytics output tokens (Standard)
+    scope: user
+    metric: tokens_per_month
+    limit: 40000
+    timeFrame: month
+  - name: Conversational Analytics input tokens (Developer)
+    scope: user
+    metric: tokens_per_month
+    limit: 4000000
+    timeFrame: month
+  - name: Conversational Analytics output tokens (Developer)
+    scope: user
+    metric: tokens_per_month
+    limit: 80000
+    timeFrame: month
+  - name: Looker Studio UI rate
+    scope: user
     metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Google Data Studio API
-      - Looker Studio Linking API
-      - Looker Studio Community Connectors
-      - Looker Studio Community Visualizations
+    limit: see Looker Studio internal limits
+    notes: Looker Studio enforces internal request smoothing; effective throughput is bounded by the connected
+      data source's quota.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Data-source bounded
+    description: Looker Studio dashboards make queries against the underlying data source (BigQuery, Sheets,
+      MySQL, etc.); the data source's own quotas are usually the binding constraint, not Looker Studio
+      itself.
+  - name: API monthly buckets
+    description: Looker Query / Admin API call counts reset monthly per edition. Add-on call packs may
+      be available via sales for higher volumes.
+  - name: Token meter for Conversational Analytics
+    description: Free until 2026-09-30; afterwards billed at $3/M input + $20/M output beyond per-user
+      monthly allocations.
+  - name: Backoff
+    description: On 429 / 403 quotaExceeded, retry with exponential backoff; cache dashboard data via
+      Looker's data action / extract scheduling features rather than re-querying live.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
-    url: https://apievangelist.com
