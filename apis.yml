@@ -44,7 +44,7 @@ apis:
         url: https://developers.google.com/looker-studio/integrate/api/reference
       - type: Authentication
         url: https://developers.google.com/looker-studio/integrate/api
-      - type: Change Log
+      - type: ChangeLog
         url: https://developers.google.com/looker-studio/integrate/api/changelog
   - name: Looker Studio Linking API
     description: >-
@@ -81,9 +81,9 @@ apis:
         url: https://developers.google.com/looker-studio/connector
       - type: Reference
         url: https://developers.google.com/looker-studio/connector/reference
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developers.google.com/looker-studio/connector/build
-      - type: Change Log
+      - type: ChangeLog
         url: https://developers.google.com/looker-studio/connector/changelog
       - type: Codelabs
         url: https://codelabs.developers.google.com/codelabs/community-connectors
@@ -102,7 +102,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developers.google.com/looker-studio/visualization
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developers.google.com/looker-studio/visualization/get-started
       - type: Reference
         url: https://developers.google.com/looker-studio/visualization/library-reference
@@ -127,33 +127,33 @@ common:
     url: json-schema/google-data-studio-report-schema.json
   - type: JSON Schema
     url: json-schema/google-data-studio-datasource-schema.json
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/google-data-studio-context.jsonld
   - type: Portal
     url: https://lookerstudio.google.com
   - type: Documentation
     url: https://docs.cloud.google.com/looker/docs/studio
-  - type: Getting Started
+  - type: GettingStarted
     url: https://support.google.com/looker-studio/answer/6283323
   - type: Authentication
     url: https://developers.google.com/looker-studio/integrate/api
   - type: Blog
     url: https://cloud.google.com/blog/products/data-analytics
-  - type: Status
+  - type: StatusPage
     url: https://status.cloud.google.com/
   - type: Support
     url: https://support.google.com/looker-studio
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://support.google.com/looker-studio/answer/7019158
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://policies.google.com/privacy
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/looker-open-source
   - type: Community
     url: https://www.googlecloudcommunity.com/gc/Looker-Studio/bd-p/looker-studio
   - type: Gallery
     url: https://lookerstudio.google.com/gallery
-  - type: Change Log
+  - type: ChangeLog
     url: https://docs.cloud.google.com/looker-studio/docs/release-notes
   - type: Pricing
     url: https://cloud.google.com/looker/pricing
@@ -161,7 +161,7 @@ common:
     url: https://cloud.google.com/looker-studio
   - type: Login
     url: https://lookerstudio.google.com/?requirelogin=1
-  - type: Sign Up
+  - type: SignUp
     url: https://lookerstudio.google.com
 maintainers:
   - FN: Kin Lane
