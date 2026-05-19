@@ -1,0 +1,120 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Data Studio Looker Studio Linking API — Embedding
+  description: 'Google Data Studio Looker Studio Linking API — Embedding. 1 operations. Lead operation: Google Data Studio
+    Create a pre-configured embedded Looker Studio report. Self-contained Naftiko capability covering one Google Data Studio
+    business surface.'
+  tags:
+  - Google Data Studio
+  - Embedding
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_DATA_STUDIO_API_KEY: GOOGLE_DATA_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: linking-embedding
+    baseUri: https://lookerstudio.google.com
+    description: Google Data Studio Looker Studio Linking API — Embedding business capability. Self-contained, no shared references.
+    resources:
+    - name: embed-reporting-create
+      path: /embed/reporting/create
+      operations:
+      - name: createembeddedreport
+        method: GET
+        description: Google Data Studio Create a pre-configured embedded Looker Studio report
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: c.reportId
+          in: query
+          type: string
+          description: The template report ID. If omitted, a blank report is created.
+        - name: c.pageId
+          in: query
+          type: string
+          description: Specifies the initial page to load in the report.
+        - name: c.mode
+          in: query
+          type: string
+          description: Sets the initial mode of the report on load. Accepts "view" or "edit".
+        - name: c.explain
+          in: query
+          type: boolean
+          description: Enables the debug/info dialog for troubleshooting.
+        - name: r.reportName
+          in: query
+          type: string
+          description: Overrides the template report name.
+        - name: ds.ds0.connector
+          in: query
+          type: string
+          description: Specifies the connector type for the data source configuration. When set, the data source is completely
+            replaced. When omitted, only specified parameters are up
+        - name: ds.ds0.datasourceName
+          in: query
+          type: string
+          description: Sets the display name of the data source.
+        - name: ds.ds0.refreshFields
+          in: query
+          type: boolean
+          description: Controls whether fields are refreshed on configuration change.
+  exposes:
+  - type: rest
+    namespace: linking-embedding-rest
+    port: 8080
+    description: REST adapter for Google Data Studio Looker Studio Linking API — Embedding. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/embed/reporting/create
+      name: embed-reporting-create
+      description: REST surface for embed-reporting-create.
+      operations:
+      - method: GET
+        name: createembeddedreport
+        description: Google Data Studio Create a pre-configured embedded Looker Studio report
+        call: linking-embedding.createembeddedreport
+        with:
+          c.reportId: rest.c.reportId
+          c.pageId: rest.c.pageId
+          c.mode: rest.c.mode
+          c.explain: rest.c.explain
+          r.reportName: rest.r.reportName
+          ds.ds0.connector: rest.ds.ds0.connector
+          ds.ds0.datasourceName: rest.ds.ds0.datasourceName
+          ds.ds0.refreshFields: rest.ds.ds0.refreshFields
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: linking-embedding-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Data Studio Looker Studio Linking API — Embedding. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: google-data-studio-create-pre
+      description: Google Data Studio Create a pre-configured embedded Looker Studio report
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: linking-embedding.createembeddedreport
+      with:
+        c.reportId: tools.c.reportId
+        c.pageId: tools.c.pageId
+        c.mode: tools.c.mode
+        c.explain: tools.c.explain
+        r.reportName: tools.r.reportName
+        ds.ds0.connector: tools.ds.ds0.connector
+        ds.ds0.datasourceName: tools.ds.ds0.datasourceName
+        ds.ds0.refreshFields: tools.ds.ds0.refreshFields
+      outputParameters:
+      - type: object
+        mapping: $.

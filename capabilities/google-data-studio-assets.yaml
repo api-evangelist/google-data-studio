@@ -1,0 +1,120 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Data Studio API — Assets
+  description: 'Google Data Studio API — Assets. 1 operations. Lead operation: Google Data Studio Search Looker Studio assets.
+    Self-contained Naftiko capability covering one Google Data Studio business surface.'
+  tags:
+  - Google Data Studio
+  - Assets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_DATA_STUDIO_API_KEY: GOOGLE_DATA_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google-data-studio-assets
+    baseUri: https://datastudio.googleapis.com/v1
+    description: Google Data Studio API — Assets business capability. Self-contained, no shared references.
+    resources:
+    - name: assets:search
+      path: /assets:search
+      operations:
+      - name: searchassets
+        method: GET
+        description: Google Data Studio Search Looker Studio assets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: assetTypes
+          in: query
+          type: string
+          description: The asset type to search. Exactly one asset type must be specified.
+          required: true
+        - name: title
+          in: query
+          type: string
+          description: Search string checked against asset title and description. Supports advanced search syntax including
+            creator:me, creator:user@example.com, owner:me, owner:user@
+        - name: includeTrashed
+          in: query
+          type: boolean
+          description: When true, includes only trashed assets. When false or omitted, excludes trashed assets. Defaults to
+            false.
+        - name: owner
+          in: query
+          type: string
+          description: Filter by the asset owner's email address.
+        - name: orderBy
+          in: query
+          type: string
+          description: Sort order for the results. Supported values are title, last_viewed_by_me, create_time, last_accessed_time,
+            and id.
+        - name: pageSize
+          in: query
+          type: integer
+          description: The maximum number of results to return per page. Defaults to 1000.
+        - name: pageToken
+          in: query
+          type: string
+          description: Token for pagination. Use the nextPageToken or previousPageToken value from a prior response to retrieve
+            subsequent pages.
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_DATA_STUDIO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: google-data-studio-assets-rest
+    port: 8080
+    description: REST adapter for Google Data Studio API — Assets. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/assets-search
+      name: assets-search
+      description: REST surface for assets:search.
+      operations:
+      - method: GET
+        name: searchassets
+        description: Google Data Studio Search Looker Studio assets
+        call: google-data-studio-assets.searchassets
+        with:
+          assetTypes: rest.assetTypes
+          title: rest.title
+          includeTrashed: rest.includeTrashed
+          owner: rest.owner
+          orderBy: rest.orderBy
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: google-data-studio-assets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Data Studio API — Assets. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-data-studio-search-looker
+      description: Google Data Studio Search Looker Studio assets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-data-studio-assets.searchassets
+      with:
+        assetTypes: tools.assetTypes
+        title: tools.title
+        includeTrashed: tools.includeTrashed
+        owner: tools.owner
+        orderBy: tools.orderBy
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
