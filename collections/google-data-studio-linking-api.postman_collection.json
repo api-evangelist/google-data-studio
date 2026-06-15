@@ -1,0 +1,818 @@
+{
+  "item": [
+    {
+      "id": "f6dd8731-dec2-4ef3-9fb6-16ddea4720b4",
+      "name": "Embedding",
+      "description": {
+        "content": "Operations for embedding pre-configured Looker Studio reports",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4d839992-5d53-4658-bf73-21732c00ca13",
+          "name": "Google Data Studio Create a pre-configured embedded Looker Studio report",
+          "request": {
+            "name": "Google Data Studio Create a pre-configured embedded Looker Studio report",
+            "description": {
+              "content": "Forwards the user to a pre-configured embedded Looker Studio report using URL parameters. This endpoint provides the same functionality as the standard report creation endpoint but optimized for embedding in iframes. Accepts the same parameters as the /reporting/create endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "embed",
+                "reporting",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "c.reportId",
+                  "value": "<string>",
+                  "description": "The template report ID. If omitted, a blank report is created."
+                },
+                {
+                  "disabled": false,
+                  "key": "c.pageId",
+                  "value": "<string>",
+                  "description": "Specifies the initial page to load in the report."
+                },
+                {
+                  "disabled": false,
+                  "key": "c.mode",
+                  "value": "<string>",
+                  "description": "Sets the initial mode of the report on load. Accepts \"view\" or \"edit\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "c.explain",
+                  "value": "<boolean>",
+                  "description": "Enables the debug/info dialog for troubleshooting."
+                },
+                {
+                  "disabled": false,
+                  "key": "r.reportName",
+                  "value": "<string>",
+                  "description": "Overrides the template report name."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.connector",
+                  "value": "<string>",
+                  "description": "Specifies the connector type for the data source configuration. When set, the data source is completely replaced. When omitted, only specified parameters are updated."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.datasourceName",
+                  "value": "<string>",
+                  "description": "Sets the display name of the data source."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.refreshFields",
+                  "value": "<boolean>",
+                  "description": "Controls whether fields are refreshed on configuration change."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "deb1562c-3161-495c-ae3c-6ae3f107b028",
+              "name": "Redirects the user to the embedded pre-configured Looker Studio report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "embed",
+                    "reporting",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "c.reportId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.pageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.explain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "r.reportName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.connector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.datasourceName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.refreshFields",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The URL of the embedded configured Looker Studio report.",
+                  "key": "Location",
+                  "value": "http://ofWUGcjzsLvcTTmyizCMqp.ztKBo+JddJxQ6x"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7a63959e-8d58-4f70-ac9c-923b9c6bda60",
+              "name": "Invalid URL parameters. An error dialog is displayed when URL parsing fails.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "embed",
+                    "reporting",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "c.reportId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.pageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.explain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "r.reportName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.connector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.datasourceName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.refreshFields",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "415c2b49-deeb-479a-a1ef-6a5ea5583495",
+      "name": "Reports",
+      "description": {
+        "content": "Operations for creating and configuring pre-built Looker Studio reports",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dfde4ca1-d6dd-47aa-b5be-d0eb4990fa6b",
+          "name": "Google Data Studio Create a pre-configured Looker Studio report",
+          "request": {
+            "name": "Google Data Studio Create a pre-configured Looker Studio report",
+            "description": {
+              "content": "Forwards the user to a pre-configured Looker Studio report using URL parameters. The user is presented with a report based on the specified template and data source configuration. Clicking \"Edit and share\" saves a personal copy to the user's account with full editing and sharing capabilities. Users need view access to the template report. When data source configuration is updated, users need view access to any reusable data sources. Embedded data sources inherit permissions from the report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reporting",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "c.reportId",
+                  "value": "<string>",
+                  "description": "The template report ID. If omitted, a blank report is created."
+                },
+                {
+                  "disabled": false,
+                  "key": "c.pageId",
+                  "value": "<string>",
+                  "description": "Specifies the initial page to load in the report."
+                },
+                {
+                  "disabled": false,
+                  "key": "c.mode",
+                  "value": "<string>",
+                  "description": "Sets the initial mode of the report on load. Accepts \"view\" or \"edit\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "c.explain",
+                  "value": "<boolean>",
+                  "description": "Enables the debug/info dialog for troubleshooting. Set to true to display debug information."
+                },
+                {
+                  "disabled": false,
+                  "key": "r.reportName",
+                  "value": "<string>",
+                  "description": "Overrides the template report name with the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "r.measurementId",
+                  "value": "<string>",
+                  "description": "Sets Google Analytics Measurement IDs for the report."
+                },
+                {
+                  "disabled": false,
+                  "key": "r.keepMeasurementId",
+                  "value": "<boolean>",
+                  "description": "When true, preserves the template's measurement IDs instead of replacing them."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.datasourceName",
+                  "value": "<string>",
+                  "description": "Sets the display name of the data source. The alias (e.g., ds0) identifies which data source in the template to configure."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.connector",
+                  "value": "<string>",
+                  "description": "Specifies the connector type for the data source. When set, the data source configuration is completely replaced (all required parameters must be provided). When omitted, only specified parameters are updated while others are inherited from the template. Supported connectors include bigQuery, googleSheets, googleAnalytics, cloudSpanner, looker, searchConsole, googleCloudStorage, and community connectors."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.refreshFields",
+                  "value": "<boolean>",
+                  "description": "Controls field refresh behavior. Set to true to refresh fields when the data source configuration changes."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.projectId",
+                  "value": "<string>",
+                  "description": "Google Cloud project ID. Used with BigQuery and Cloud Spanner connectors."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.datasetId",
+                  "value": "<string>",
+                  "description": "BigQuery dataset ID. Used with the BigQuery TABLE type."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.tableId",
+                  "value": "<string>",
+                  "description": "BigQuery table ID. Used with the BigQuery TABLE type."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.type",
+                  "value": "<string>",
+                  "description": "BigQuery query type. Accepts TABLE or CUSTOM_QUERY."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.sql",
+                  "value": "<string>",
+                  "description": "SQL query string for BigQuery CUSTOM_QUERY type or Cloud Spanner connector."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.spreadsheetId",
+                  "value": "<string>",
+                  "description": "Google Sheets spreadsheet ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.worksheetId",
+                  "value": "<string>",
+                  "description": "Google Sheets worksheet ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.hasHeader",
+                  "value": "<boolean>",
+                  "description": "Whether the Google Sheet has a header row. Defaults to true."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.range",
+                  "value": "<string>",
+                  "description": "Cell range to use from the Google Sheet (e.g., A1:D100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.accountId",
+                  "value": "<string>",
+                  "description": "Google Analytics account ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.propertyId",
+                  "value": "<string>",
+                  "description": "Google Analytics property ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.viewId",
+                  "value": "<string>",
+                  "description": "Google Analytics view ID. Required for Universal Analytics only."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.instanceId",
+                  "value": "<string>",
+                  "description": "Cloud Spanner instance ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.databaseId",
+                  "value": "<string>",
+                  "description": "Cloud Spanner database ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.instanceUrl",
+                  "value": "<uri>",
+                  "description": "Looker instance URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.model",
+                  "value": "<string>",
+                  "description": "Looker model name."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.explore",
+                  "value": "<string>",
+                  "description": "Looker explore name."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.siteUrl",
+                  "value": "<uri>",
+                  "description": "Google Search Console site URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.tableType",
+                  "value": "<string>",
+                  "description": "Search Console table type."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.searchType",
+                  "value": "<string>",
+                  "description": "Search Console search type."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.pathType",
+                  "value": "<string>",
+                  "description": "Google Cloud Storage path type. Accepts FILE or FOLDER."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.path",
+                  "value": "<string>",
+                  "description": "Google Cloud Storage file or folder path."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.connectorId",
+                  "value": "<string>",
+                  "description": "Community connector ID. Used to specify a community-built connector along with any connector-specific parameters."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4e1f25df-7d63-47ff-b16e-ab31561863c5",
+              "name": "Redirects the user to the pre-configured Looker Studio report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reporting",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "c.reportId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.pageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.explain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "r.reportName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "r.measurementId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "r.keepMeasurementId",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ds.ds0.datasourceName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.connector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.refreshFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ds.ds0.projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.datasetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.tableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.sql",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.spreadsheetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.worksheetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.hasHeader",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ds.ds0.range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.accountId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.propertyId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.viewId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.instanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.databaseId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.instanceUrl",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "ds.ds0.model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.explore",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.siteUrl",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "ds.ds0.tableType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.pathType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.connectorId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The URL of the configured Looker Studio report.",
+                  "key": "Location",
+                  "value": "http://ofWUGcjzsLvcTTmyizCMqp.ztKBo+JddJxQ6x"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "af596d22-20b2-4a5c-9855-fb172b577c73",
+              "name": "Invalid URL parameters. An automatic error dialog is displayed when URL parsing fails.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reporting",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "c.reportId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.pageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.explain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "r.reportName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "r.measurementId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "r.keepMeasurementId",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ds.ds0.datasourceName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.connector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.refreshFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ds.ds0.projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.datasetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.tableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.sql",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.spreadsheetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.worksheetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.hasHeader",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ds.ds0.range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.accountId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.propertyId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.viewId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.instanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.databaseId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.instanceUrl",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "ds.ds0.model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.explore",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.siteUrl",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "ds.ds0.tableType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.pathType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.connectorId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://lookerstudio.google.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c3afc5d5-e92f-446e-a48f-1f73abf3749b",
+    "name": "Google Data Studio Looker Studio Linking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Looker Studio Linking API provides a reliable interface to configure and forward users directly to a pre-configured Looker Studio report via URL parameters, enabling one-click report creation experiences. It allows developers to create dynamic URLs that direct users to pre-configured reports, eliminating manual data source setup. The API supports configuring report templates, data sources, connectors, and report parameters through URL query parameters.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}
