@@ -111,15 +111,15 @@ common:
     url: openapi/google-data-studio-api-openapi.yml
   - type: OpenAPI
     url: openapi/google-data-studio-linking-api-openapi.yml
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/google-data-studio-asset-schema.json
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/google-data-studio-permissions-schema.json
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/google-data-studio-connector-schema.json
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/google-data-studio-report-schema.json
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/google-data-studio-datasource-schema.json
   - type: JSONLD
     url: json-ld/google-data-studio-context.jsonld
@@ -155,7 +155,7 @@ common:
     url: https://cloud.google.com/looker-studio
   - type: Login
     url: https://lookerstudio.google.com/?requirelogin=1
-  - type: SignUp
+  - type: Signup
     url: https://lookerstudio.google.com
 maintainers:
   - FN: Kin Lane
