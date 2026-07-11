@@ -107,6 +107,12 @@ apis:
       - type: Open Source
         url: https://developers.google.com/looker-studio/visualization/open-source
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-data-studio-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-data-studio-domain-security.yml
+  - type: Authentication
+    url: authentication/google-data-studio-authentication.yml
   - type: OAuthScopes
     url: scopes/google-data-studio-scopes.yml
   - type: OpenAPI
