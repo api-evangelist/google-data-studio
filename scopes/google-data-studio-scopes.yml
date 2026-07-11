@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/google-data-studio-api-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/google-data-studio-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.google.com/o/oauth2/auth
+    tokenUrl: https://oauth2.googleapis.com/token
+  description: OAuth 2.0 authentication. Requires domain-wide delegation configured by a Google
+    Workspace administrator.
+scopes:
+- scope: https://www.googleapis.com/auth/datastudio
+  description: Full read and write access to Looker Studio assets and permissions.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/google-data-studio-api-openapi.yml
+- scope: https://www.googleapis.com/auth/datastudio.readonly
+  description: Read-only access to Looker Studio assets and permissions.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/google-data-studio-api-openapi.yml
+- scope: https://www.googleapis.com/auth/userinfo.profile
+  description: Access to user profile information.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/google-data-studio-api-openapi.yml

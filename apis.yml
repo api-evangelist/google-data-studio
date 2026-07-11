@@ -107,6 +107,8 @@ apis:
       - type: Open Source
         url: https://developers.google.com/looker-studio/visualization/open-source
 common:
+  - type: OAuthScopes
+    url: scopes/google-data-studio-scopes.yml
   - type: OpenAPI
     url: openapi/google-data-studio-api-openapi.yml
   - type: OpenAPI
