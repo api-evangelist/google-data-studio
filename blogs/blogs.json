@@ -2,13 +2,14 @@
   "repo": "google-data-studio",
   "feeds": [
     {
-      "source": "https://cloud.google.com/blog/products/data-analytics",
-      "feed_url": "",
-      "saved": 1,
-      "method": "agent-scrape"
+      "source": "https://developers.google.com/looker-studio/integrate/api",
+      "feed_url": "https://developers.google.com/looker-studio/integrate/api",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "post_count": 25,
-  "fetched": "2026-06-27T12:45:16Z",
+  "post_count": 28,
+  "fetched": "2026-07-11T11:50:51Z",
   "agent_pulled": "2026-06-27"
 }
