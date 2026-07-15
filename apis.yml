@@ -107,6 +107,8 @@ apis:
       - type: Open Source
         url: https://developers.google.com/looker-studio/visualization/open-source
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-data-studio-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-data-studio-vulnerability-disclosure.yml
   - type: DomainSecurity
