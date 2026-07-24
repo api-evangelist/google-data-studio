@@ -1,0 +1,107 @@
+openapi: 3.1.0
+info:
+  title: Google Data Studio Assets Embedding API
+  description: The Looker Studio API (formerly Google Data Studio API) enables programmatic management of Looker Studio assets, including searching for assets and managing permissions within Google Workspace or Cloud Identity organizations. The API is only available to users that belong to an organization with Google Workspace or Cloud Identity.
+  version: v1
+  contact:
+    name: Google
+    url: https://developers.google.com/looker-studio/integrate/api
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  x-date: '2026-03-04'
+servers:
+- url: https://datastudio.googleapis.com/v1
+  description: Looker Studio API v1 production server
+security:
+- oauth2: []
+tags:
+- name: Embedding
+  description: Operations for embedding pre-configured Looker Studio reports
+paths:
+  /embed/reporting/create:
+    get:
+      operationId: createEmbeddedReport
+      summary: Google Data Studio Create a pre-configured embedded Looker Studio report
+      description: Forwards the user to a pre-configured embedded Looker Studio report using URL parameters. This endpoint provides the same functionality as the standard report creation endpoint but optimized for embedding in iframes. Accepts the same parameters as the /reporting/create endpoint.
+      tags:
+      - Embedding
+      parameters:
+      - name: c.reportId
+        in: query
+        required: false
+        description: The template report ID. If omitted, a blank report is created.
+        schema:
+          type: string
+      - name: c.pageId
+        in: query
+        required: false
+        description: Specifies the initial page to load in the report.
+        schema:
+          type: string
+      - name: c.mode
+        in: query
+        required: false
+        description: Sets the initial mode of the report on load. Accepts "view" or "edit".
+        schema:
+          type: string
+          enum:
+          - view
+          - edit
+      - name: c.explain
+        in: query
+        required: false
+        description: Enables the debug/info dialog for troubleshooting.
+        schema:
+          type: boolean
+      - name: r.reportName
+        in: query
+        required: false
+        description: Overrides the template report name.
+        schema:
+          type: string
+      - name: ds.ds0.connector
+        in: query
+        required: false
+        description: Specifies the connector type for the data source configuration. When set, the data source is completely replaced. When omitted, only specified parameters are updated.
+        schema:
+          type: string
+      - name: ds.ds0.datasourceName
+        in: query
+        required: false
+        description: Sets the display name of the data source.
+        schema:
+          type: string
+      - name: ds.ds0.refreshFields
+        in: query
+        required: false
+        description: Controls whether fields are refreshed on configuration change.
+        schema:
+          type: boolean
+      responses:
+        '302':
+          description: Redirects the user to the embedded pre-configured Looker Studio report.
+          headers:
+            Location:
+              description: The URL of the embedded configured Looker Studio report.
+              schema:
+                type: string
+                format: uri
+        '400':
+          description: Invalid URL parameters. An error dialog is displayed when URL parsing fails.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication. Requires domain-wide delegation configured by a Google Workspace administrator.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/datastudio: Full read and write access to Looker Studio assets and permissions.
+            https://www.googleapis.com/auth/datastudio.readonly: Read-only access to Looker Studio assets and permissions.
+            https://www.googleapis.com/auth/userinfo.profile: Access to user profile information.
+externalDocs:
+  description: Looker Studio API Documentation
+  url: https://developers.google.com/looker-studio/integrate/api
