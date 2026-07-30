@@ -4,6 +4,19 @@ description: >-
   Google Data Studio, now rebranded as Looker Studio, is a free data visualization and business intelligence tool from
   Google that transforms data into customizable, shareable dashboards and reports. It connects to a wide range of data
   sources and supports community connectors and visualizations for extensibility.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://www.gstatic.com/analytics-suite/header/suite/v2/ic_data_studio.svg
 url: https://lookerstudio.google.com
 created: '2024-01-01'
@@ -18,95 +31,136 @@ tags:
   - Reporting
   - Visualization
 apis:
-  - name: Google Data Studio API
-    description: >-
-      The Looker Studio API enables programmatic management of Looker Studio assets, including searching for assets and
-      managing permissions within Google Workspace or Cloud Identity organizations.
-    image: https://www.gstatic.com/analytics-suite/header/suite/v2/ic_data_studio.svg
-    humanURL: https://developers.google.com/looker-studio/integrate/api
-    baseURL: https://datastudio.googleapis.com
-    tags:
-      - Assets
-      - Data Sources
-      - Permissions
-      - Reports
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/looker-studio/integrate/api
-      - type: OpenAPI
-        url: openapi/google-data-studio-api-openapi.yml
-      - type: OpenAPI
-        url: https://datastudio.googleapis.com/$discovery/rest?version=v1
-      - type: Reference
-        url: https://developers.google.com/looker-studio/integrate/api/reference
-      - type: Authentication
-        url: https://developers.google.com/looker-studio/integrate/api
-      - type: ChangeLog
-        url: https://developers.google.com/looker-studio/integrate/api/changelog
-  - name: Looker Studio Linking API
-    description: >-
-      The Linking API provides a reliable interface to configure and forward users directly to a pre-configured Looker
-      Studio report via URL parameters, enabling one-click report creation experiences.
-    image: https://www.gstatic.com/analytics-suite/header/suite/v2/ic_data_studio.svg
-    humanURL: https://developers.google.com/looker-studio/integrate/linking-api
-    tags:
-      - Embedding
-      - Integration
-      - Linking
-      - Reports
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/looker-studio/integrate/linking-api
-      - type: OpenAPI
-        url: openapi/google-data-studio-linking-api-openapi.yml
-  - name: Looker Studio Community Connectors
-    description: >-
-      Community Connectors enable direct connections from Looker Studio to any internet-accessible data source using
-      Google Apps Script. Developers implement getAuthType, getConfig, getSchema, and getData functions to build custom
-      connectors.
-    image: https://www.gstatic.com/analytics-suite/header/suite/v2/ic_data_studio.svg
-    humanURL: https://developers.google.com/looker-studio/connector
-    tags:
-      - Apps Script
-      - Connectors
-      - Data Sources
-      - Integration
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/looker-studio/connector
-      - type: Reference
-        url: https://developers.google.com/looker-studio/connector/reference
-      - type: GettingStarted
-        url: https://developers.google.com/looker-studio/connector/build
-      - type: ChangeLog
-        url: https://developers.google.com/looker-studio/connector/changelog
-      - type: Codelabs
-        url: https://codelabs.developers.google.com/codelabs/community-connectors
-  - name: Looker Studio Community Visualizations
-    description: >-
-      Community Visualizations allow developers to build and share custom JavaScript visualizations in Looker Studio
-      using the dscc helper library, extending the platform with custom chart types and visual components.
-    image: https://www.gstatic.com/analytics-suite/header/suite/v2/ic_data_studio.svg
-    humanURL: https://developers.google.com/looker-studio/visualization
-    tags:
-      - Charts
-      - Custom Components
-      - JavaScript
-      - Visualizations
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/looker-studio/visualization
-      - type: GettingStarted
-        url: https://developers.google.com/looker-studio/visualization/get-started
-      - type: Reference
-        url: https://developers.google.com/looker-studio/visualization/library-reference
-      - type: Libraries
-        url: https://developers.google.com/looker-studio/visualization/library
-      - type: Codelabs
-        url: https://codelabs.developers.google.com/codelabs/community-visualization
-      - type: Open Source
-        url: https://developers.google.com/looker-studio/visualization/open-source
+- name: Looker Studio Community Connectors
+  description: >-
+    Community Connectors enable direct connections from Looker Studio to any internet-accessible data
+    source using Google Apps Script. Developers implement getAuthType, getConfig, getSchema, and getData
+    functions to build custom connectors.
+  image: https://www.gstatic.com/analytics-suite/header/suite/v2/ic_data_studio.svg
+  humanURL: https://developers.google.com/looker-studio/connector
+  tags:
+  - Apps Script
+  - Connectors
+  - Data Sources
+  - Integration
+  properties:
+  - type: Documentation
+    url: https://developers.google.com/looker-studio/connector
+  - type: Reference
+    url: https://developers.google.com/looker-studio/connector/reference
+  - type: GettingStarted
+    url: https://developers.google.com/looker-studio/connector/build
+  - type: ChangeLog
+    url: https://developers.google.com/looker-studio/connector/changelog
+  - type: Codelabs
+    url: https://codelabs.developers.google.com/codelabs/community-connectors
+- name: Looker Studio Community Visualizations
+  description: >-
+    Community Visualizations allow developers to build and share custom JavaScript visualizations in Looker
+    Studio using the dscc helper library, extending the platform with custom chart types and visual components.
+  image: https://www.gstatic.com/analytics-suite/header/suite/v2/ic_data_studio.svg
+  humanURL: https://developers.google.com/looker-studio/visualization
+  tags:
+  - Charts
+  - Custom Components
+  - JavaScript
+  - Visualizations
+  properties:
+  - type: Documentation
+    url: https://developers.google.com/looker-studio/visualization
+  - type: GettingStarted
+    url: https://developers.google.com/looker-studio/visualization/get-started
+  - type: Reference
+    url: https://developers.google.com/looker-studio/visualization/library-reference
+  - type: Libraries
+    url: https://developers.google.com/looker-studio/visualization/library
+  - type: Codelabs
+    url: https://codelabs.developers.google.com/codelabs/community-visualization
+  - type: Open Source
+    url: https://developers.google.com/looker-studio/visualization/open-source
+- aid: google-data-studio:google-data-studio-assets-api
+  name: Google Data Studio Assets API
+  description: Operations for searching and listing Looker Studio assets
+  humanURL: https://developers.google.com/looker-studio/integrate/api
+  baseURL: https://datastudio.googleapis.com
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/google-data-studio-assets-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/looker-studio/integrate/api
+  - type: Reference
+    url: https://developers.google.com/looker-studio/integrate/api/reference
+  - type: Authentication
+    url: https://developers.google.com/looker-studio/integrate/api
+  - type: ChangeLog
+    url: https://developers.google.com/looker-studio/integrate/api/changelog
+  - type: Documentation
+    url: https://developers.google.com/looker-studio/integrate/linking-api
+- aid: google-data-studio:google-data-studio-embedding-api
+  name: Google Data Studio Embedding API
+  description: Operations for embedding pre-configured Looker Studio reports
+  humanURL: https://developers.google.com/looker-studio/integrate/api
+  baseURL: https://datastudio.googleapis.com
+  tags:
+  - Embedding
+  properties:
+  - type: OpenAPI
+    url: openapi/google-data-studio-embedding-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/looker-studio/integrate/api
+  - type: Reference
+    url: https://developers.google.com/looker-studio/integrate/api/reference
+  - type: Authentication
+    url: https://developers.google.com/looker-studio/integrate/api
+  - type: ChangeLog
+    url: https://developers.google.com/looker-studio/integrate/api/changelog
+  - type: Documentation
+    url: https://developers.google.com/looker-studio/integrate/linking-api
+- aid: google-data-studio:google-data-studio-permissions-api
+  name: Google Data Studio Permissions API
+  description: Operations for managing access controls on Looker Studio assets
+  humanURL: https://developers.google.com/looker-studio/integrate/api
+  baseURL: https://datastudio.googleapis.com
+  tags:
+  - Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/google-data-studio-permissions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/looker-studio/integrate/api
+  - type: Reference
+    url: https://developers.google.com/looker-studio/integrate/api/reference
+  - type: Authentication
+    url: https://developers.google.com/looker-studio/integrate/api
+  - type: ChangeLog
+    url: https://developers.google.com/looker-studio/integrate/api/changelog
+  - type: Documentation
+    url: https://developers.google.com/looker-studio/integrate/linking-api
+- aid: google-data-studio:google-data-studio-reports-api
+  name: Google Data Studio Reports API
+  description: Operations for creating and configuring pre-built Looker Studio reports
+  humanURL: https://developers.google.com/looker-studio/integrate/api
+  baseURL: https://datastudio.googleapis.com
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/google-data-studio-reports-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/looker-studio/integrate/api
+  - type: Reference
+    url: https://developers.google.com/looker-studio/integrate/api/reference
+  - type: Authentication
+    url: https://developers.google.com/looker-studio/integrate/api
+  - type: ChangeLog
+    url: https://developers.google.com/looker-studio/integrate/api/changelog
+  - type: Documentation
+    url: https://developers.google.com/looker-studio/integrate/linking-api
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/google-data-studio/overview
   - type: AgenticAccess
     url: agentic-access/google-data-studio-agentic-access.yml
   - type: VulnerabilityDisclosure
