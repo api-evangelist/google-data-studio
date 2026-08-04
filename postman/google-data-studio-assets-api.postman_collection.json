@@ -1,0 +1,438 @@
+{
+  "info": {
+    "_postman_id": "01457622-d8fc-44f2-8847-1506eb49b92a",
+    "name": "Google Data Studio Assets API",
+    "description": "The Looker Studio API (formerly Google Data Studio API) enables programmatic management of Looker Studio assets, including searching for assets and managing permissions within Google Workspace or Cloud Identity organizations. The API is only available to users that belong to an organization with Google Workspace or Cloud Identity.\n\nContact Support:\n Name: Google",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:48:57.000Z",
+    "updatedAt": "2026-07-28T01:48:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-01457622-d8fc-44f2-8847-1506eb49b92a"
+  },
+  "item": [
+    {
+      "name": "assets:search",
+      "item": [
+        {
+          "name": "Google Data Studio Search Looker Studio assets",
+          "id": "191ca564-7b06-4cde-a9a8-9008e8e7cc53",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/assets:search?assetTypes=DATA_SOURCE&title=<string>&includeTrashed=false&owner=<email>&orderBy=create_time&pageSize=1000&pageToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "assets:search"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The asset type to search. Exactly one asset type must be specified.",
+                  "key": "assetTypes",
+                  "value": "DATA_SOURCE"
+                },
+                {
+                  "description": "Search string checked against asset title and description. Supports advanced search syntax including creator:me, creator:user@example.com, owner:me, owner:user@example.com, projectNumber:123456789, parentWorkspace:{uuid}, from:user@example.com, to:user@example.com, and to:group@googlegroups.com.",
+                  "key": "title",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When true, includes only trashed assets. When false or omitted, excludes trashed assets. Defaults to false.",
+                  "key": "includeTrashed",
+                  "value": "false"
+                },
+                {
+                  "description": "Filter by the asset owner's email address.",
+                  "key": "owner",
+                  "value": "<email>"
+                },
+                {
+                  "description": "Sort order for the results. Supported values are title, last_viewed_by_me, create_time, last_accessed_time, and id.",
+                  "key": "orderBy",
+                  "value": "create_time"
+                },
+                {
+                  "description": "The maximum number of results to return per page. Defaults to 1000.",
+                  "key": "pageSize",
+                  "value": "1000"
+                },
+                {
+                  "description": "Token for pagination. Use the nextPageToken or previousPageToken value from a prior response to retrieve subsequent pages.",
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Searches the authenticated user's Looker Studio assets. Supports filtering by asset type, title, owner, and trash status. Results are paginated and can be sorted by various fields. Advanced search filters can be used in the title parameter to narrow results by creator, owner, project number, parent workspace, and sharing recipients."
+          },
+          "response": [
+            {
+              "id": "802021e5-3cdc-4040-b35c-886d7510695b",
+              "name": "Successful response containing a list of matching assets.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/assets:search?assetTypes=DATA_SOURCE&title=<string>&includeTrashed=false&owner=<email>&orderBy=create_time&pageSize=1000&pageToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assets:search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The asset type to search. Exactly one asset type must be specified.",
+                      "key": "assetTypes",
+                      "value": "DATA_SOURCE"
+                    },
+                    {
+                      "description": "Search string checked against asset title and description. Supports advanced search syntax including creator:me, creator:user@example.com, owner:me, owner:user@example.com, projectNumber:123456789, parentWorkspace:{uuid}, from:user@example.com, to:user@example.com, and to:group@googlegroups.com.",
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When true, includes only trashed assets. When false or omitted, excludes trashed assets. Defaults to false.",
+                      "key": "includeTrashed",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by the asset owner's email address.",
+                      "key": "owner",
+                      "value": "<email>"
+                    },
+                    {
+                      "description": "Sort order for the results. Supported values are title, last_viewed_by_me, create_time, last_accessed_time, and id.",
+                      "key": "orderBy",
+                      "value": "create_time"
+                    },
+                    {
+                      "description": "The maximum number of results to return per page. Defaults to 1000.",
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "description": "Token for pagination. Use the nextPageToken or previousPageToken value from a prior response to retrieve subsequent pages.",
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"assets\": [\n    {\n      \"assetType\": \"DATA_SOURCE\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"creator\": \"<string>\",\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"updateByMeTime\": \"<dateTime>\",\n      \"lastViewByMeTime\": \"<dateTime>\",\n      \"trashed\": \"<boolean>\"\n    },\n    {\n      \"assetType\": \"DATA_SOURCE\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"creator\": \"<string>\",\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"updateByMeTime\": \"<dateTime>\",\n      \"lastViewByMeTime\": \"<dateTime>\",\n      \"trashed\": \"<boolean>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\",\n  \"previousPageToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:48:57.000Z",
+              "updatedAt": "2026-07-28T01:48:57.000Z",
+              "uid": "35240-802021e5-3cdc-4040-b35c-886d7510695b"
+            },
+            {
+              "id": "b6bc331f-b218-4281-9208-a0908eb4cad3",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/assets:search?assetTypes=DATA_SOURCE&title=<string>&includeTrashed=false&owner=<email>&orderBy=create_time&pageSize=1000&pageToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assets:search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The asset type to search. Exactly one asset type must be specified.",
+                      "key": "assetTypes",
+                      "value": "DATA_SOURCE"
+                    },
+                    {
+                      "description": "Search string checked against asset title and description. Supports advanced search syntax including creator:me, creator:user@example.com, owner:me, owner:user@example.com, projectNumber:123456789, parentWorkspace:{uuid}, from:user@example.com, to:user@example.com, and to:group@googlegroups.com.",
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When true, includes only trashed assets. When false or omitted, excludes trashed assets. Defaults to false.",
+                      "key": "includeTrashed",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by the asset owner's email address.",
+                      "key": "owner",
+                      "value": "<email>"
+                    },
+                    {
+                      "description": "Sort order for the results. Supported values are title, last_viewed_by_me, create_time, last_accessed_time, and id.",
+                      "key": "orderBy",
+                      "value": "create_time"
+                    },
+                    {
+                      "description": "The maximum number of results to return per page. Defaults to 1000.",
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "description": "Token for pagination. Use the nextPageToken or previousPageToken value from a prior response to retrieve subsequent pages.",
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\",\n    \"status\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:48:57.000Z",
+              "updatedAt": "2026-07-28T01:48:57.000Z",
+              "uid": "35240-b6bc331f-b218-4281-9208-a0908eb4cad3"
+            },
+            {
+              "id": "5b07fce0-e711-4ee3-a848-51565c4b49ab",
+              "name": "Authentication required or invalid credentials.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/assets:search?assetTypes=DATA_SOURCE&title=<string>&includeTrashed=false&owner=<email>&orderBy=create_time&pageSize=1000&pageToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assets:search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The asset type to search. Exactly one asset type must be specified.",
+                      "key": "assetTypes",
+                      "value": "DATA_SOURCE"
+                    },
+                    {
+                      "description": "Search string checked against asset title and description. Supports advanced search syntax including creator:me, creator:user@example.com, owner:me, owner:user@example.com, projectNumber:123456789, parentWorkspace:{uuid}, from:user@example.com, to:user@example.com, and to:group@googlegroups.com.",
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When true, includes only trashed assets. When false or omitted, excludes trashed assets. Defaults to false.",
+                      "key": "includeTrashed",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by the asset owner's email address.",
+                      "key": "owner",
+                      "value": "<email>"
+                    },
+                    {
+                      "description": "Sort order for the results. Supported values are title, last_viewed_by_me, create_time, last_accessed_time, and id.",
+                      "key": "orderBy",
+                      "value": "create_time"
+                    },
+                    {
+                      "description": "The maximum number of results to return per page. Defaults to 1000.",
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "description": "Token for pagination. Use the nextPageToken or previousPageToken value from a prior response to retrieve subsequent pages.",
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\",\n    \"status\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:48:57.000Z",
+              "updatedAt": "2026-07-28T01:48:57.000Z",
+              "uid": "35240-5b07fce0-e711-4ee3-a848-51565c4b49ab"
+            },
+            {
+              "id": "04ae6cf5-6bce-489a-9b64-49d7934ec63c",
+              "name": "Insufficient permissions. The user may not belong to a Google Workspace or Cloud Identity organization.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/assets:search?assetTypes=DATA_SOURCE&title=<string>&includeTrashed=false&owner=<email>&orderBy=create_time&pageSize=1000&pageToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assets:search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The asset type to search. Exactly one asset type must be specified.",
+                      "key": "assetTypes",
+                      "value": "DATA_SOURCE"
+                    },
+                    {
+                      "description": "Search string checked against asset title and description. Supports advanced search syntax including creator:me, creator:user@example.com, owner:me, owner:user@example.com, projectNumber:123456789, parentWorkspace:{uuid}, from:user@example.com, to:user@example.com, and to:group@googlegroups.com.",
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When true, includes only trashed assets. When false or omitted, excludes trashed assets. Defaults to false.",
+                      "key": "includeTrashed",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by the asset owner's email address.",
+                      "key": "owner",
+                      "value": "<email>"
+                    },
+                    {
+                      "description": "Sort order for the results. Supported values are title, last_viewed_by_me, create_time, last_accessed_time, and id.",
+                      "key": "orderBy",
+                      "value": "create_time"
+                    },
+                    {
+                      "description": "The maximum number of results to return per page. Defaults to 1000.",
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "description": "Token for pagination. Use the nextPageToken or previousPageToken value from a prior response to retrieve subsequent pages.",
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\",\n    \"status\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:48:57.000Z",
+              "updatedAt": "2026-07-28T01:48:57.000Z",
+              "uid": "35240-04ae6cf5-6bce-489a-9b64-49d7934ec63c"
+            }
+          ],
+          "createdAt": "2026-07-28T01:48:57.000Z",
+          "updatedAt": "2026-07-28T01:48:57.000Z",
+          "uid": "35240-191ca564-7b06-4cde-a9a8-9008e8e7cc53"
+        }
+      ],
+      "id": "f1b3dc39-8794-40e4-9349-7dd4a6fc82a4",
+      "createdAt": "2026-07-28T01:48:57.000Z",
+      "updatedAt": "2026-07-28T01:48:57.000Z",
+      "uid": "35240-f1b3dc39-8794-40e4-9349-7dd4a6fc82a4"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/datastudio https://www.googleapis.com/auth/datastudio.readonly https://www.googleapis.com/auth/userinfo.profile",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://datastudio.googleapis.com/v1"
+    }
+  ]
+}

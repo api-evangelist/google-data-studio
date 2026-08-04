@@ -1,0 +1,20 @@
+{
+  "provider": "google-data-studio",
+  "sources": [
+    "google-data-studio-assets-api-openapi.yml",
+    "google-data-studio-embedding-api-openapi.yml",
+    "google-data-studio-permissions-api-openapi.yml",
+    "google-data-studio-reports-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-data-studio-assets-api-openapi.yml",
+    "google-data-studio-embedding-api-openapi.yml",
+    "google-data-studio-permissions-api-openapi.yml",
+    "google-data-studio-reports-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

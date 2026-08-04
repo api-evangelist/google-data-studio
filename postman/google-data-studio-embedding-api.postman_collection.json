@@ -1,0 +1,306 @@
+{
+  "info": {
+    "_postman_id": "5d4dc906-1e0a-4674-aa79-dad298aace9e",
+    "name": "Google Data Studio Assets Embedding API",
+    "description": "The Looker Studio API (formerly Google Data Studio API) enables programmatic management of Looker Studio assets, including searching for assets and managing permissions within Google Workspace or Cloud Identity organizations. The API is only available to users that belong to an organization with Google Workspace or Cloud Identity.\n\nContact Support:\n Name: Google",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:48:57.000Z",
+    "updatedAt": "2026-07-28T01:48:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5d4dc906-1e0a-4674-aa79-dad298aace9e"
+  },
+  "item": [
+    {
+      "name": "embed",
+      "item": [
+        {
+          "name": "reporting",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Google Data Studio Create a pre-configured embedded Looker Studio report",
+                  "id": "17258ce8-f7a4-4279-beee-a30dcf67f9dc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/embed/reporting/create?c.reportId=<string>&c.pageId=<string>&c.mode=view&c.explain=<boolean>&r.reportName=<string>&ds.ds0.connector=<string>&ds.ds0.datasourceName=<string>&ds.ds0.refreshFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "embed",
+                        "reporting",
+                        "create"
+                      ],
+                      "query": [
+                        {
+                          "description": "The template report ID. If omitted, a blank report is created.",
+                          "key": "c.reportId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Specifies the initial page to load in the report.",
+                          "key": "c.pageId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sets the initial mode of the report on load. Accepts \"view\" or \"edit\".",
+                          "key": "c.mode",
+                          "value": "view"
+                        },
+                        {
+                          "description": "Enables the debug/info dialog for troubleshooting.",
+                          "key": "c.explain",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Overrides the template report name.",
+                          "key": "r.reportName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Specifies the connector type for the data source configuration. When set, the data source is completely replaced. When omitted, only specified parameters are updated.",
+                          "key": "ds.ds0.connector",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sets the display name of the data source.",
+                          "key": "ds.ds0.datasourceName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Controls whether fields are refreshed on configuration change.",
+                          "key": "ds.ds0.refreshFields",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "description": "Forwards the user to a pre-configured embedded Looker Studio report using URL parameters. This endpoint provides the same functionality as the standard report creation endpoint but optimized for embedding in iframes. Accepts the same parameters as the /reporting/create endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "6da6fea0-5845-4b98-be3c-5c3ca2989bf7",
+                      "name": "Redirects the user to the embedded pre-configured Looker Studio report.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/embed/reporting/create?c.reportId=<string>&c.pageId=<string>&c.mode=view&c.explain=<boolean>&r.reportName=<string>&ds.ds0.connector=<string>&ds.ds0.datasourceName=<string>&ds.ds0.refreshFields=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "embed",
+                            "reporting",
+                            "create"
+                          ],
+                          "query": [
+                            {
+                              "description": "The template report ID. If omitted, a blank report is created.",
+                              "key": "c.reportId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the initial page to load in the report.",
+                              "key": "c.pageId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Sets the initial mode of the report on load. Accepts \"view\" or \"edit\".",
+                              "key": "c.mode",
+                              "value": "view"
+                            },
+                            {
+                              "description": "Enables the debug/info dialog for troubleshooting.",
+                              "key": "c.explain",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Overrides the template report name.",
+                              "key": "r.reportName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the connector type for the data source configuration. When set, the data source is completely replaced. When omitted, only specified parameters are updated.",
+                              "key": "ds.ds0.connector",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Sets the display name of the data source.",
+                              "key": "ds.ds0.datasourceName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Controls whether fields are refreshed on configuration change.",
+                              "key": "ds.ds0.refreshFields",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Found",
+                      "code": 302,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The URL of the embedded configured Looker Studio report.",
+                            "type": "text/plain"
+                          },
+                          "key": "Location",
+                          "value": "<uri>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:48:58.000Z",
+                      "updatedAt": "2026-07-28T01:48:58.000Z",
+                      "uid": "35240-6da6fea0-5845-4b98-be3c-5c3ca2989bf7"
+                    },
+                    {
+                      "id": "74ffe2f5-cb52-4b0a-8da3-edcf05eaa2d3",
+                      "name": "Invalid URL parameters. An error dialog is displayed when URL parsing fails.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/embed/reporting/create?c.reportId=<string>&c.pageId=<string>&c.mode=view&c.explain=<boolean>&r.reportName=<string>&ds.ds0.connector=<string>&ds.ds0.datasourceName=<string>&ds.ds0.refreshFields=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "embed",
+                            "reporting",
+                            "create"
+                          ],
+                          "query": [
+                            {
+                              "description": "The template report ID. If omitted, a blank report is created.",
+                              "key": "c.reportId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the initial page to load in the report.",
+                              "key": "c.pageId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Sets the initial mode of the report on load. Accepts \"view\" or \"edit\".",
+                              "key": "c.mode",
+                              "value": "view"
+                            },
+                            {
+                              "description": "Enables the debug/info dialog for troubleshooting.",
+                              "key": "c.explain",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Overrides the template report name.",
+                              "key": "r.reportName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the connector type for the data source configuration. When set, the data source is completely replaced. When omitted, only specified parameters are updated.",
+                              "key": "ds.ds0.connector",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Sets the display name of the data source.",
+                              "key": "ds.ds0.datasourceName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Controls whether fields are refreshed on configuration change.",
+                              "key": "ds.ds0.refreshFields",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:48:58.000Z",
+                      "updatedAt": "2026-07-28T01:48:58.000Z",
+                      "uid": "35240-74ffe2f5-cb52-4b0a-8da3-edcf05eaa2d3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:48:58.000Z",
+                  "updatedAt": "2026-07-28T01:48:58.000Z",
+                  "uid": "35240-17258ce8-f7a4-4279-beee-a30dcf67f9dc"
+                }
+              ],
+              "id": "f6620ec1-242e-466a-b881-40bc4cc9d006",
+              "createdAt": "2026-07-28T01:48:58.000Z",
+              "updatedAt": "2026-07-28T01:48:58.000Z",
+              "uid": "35240-f6620ec1-242e-466a-b881-40bc4cc9d006"
+            }
+          ],
+          "id": "fc22fd9b-892e-4fdf-90dc-0228f7a5e564",
+          "createdAt": "2026-07-28T01:48:58.000Z",
+          "updatedAt": "2026-07-28T01:48:58.000Z",
+          "uid": "35240-fc22fd9b-892e-4fdf-90dc-0228f7a5e564"
+        }
+      ],
+      "id": "4a7ad027-c209-4d41-9ae3-519af428720a",
+      "createdAt": "2026-07-28T01:48:58.000Z",
+      "updatedAt": "2026-07-28T01:48:58.000Z",
+      "uid": "35240-4a7ad027-c209-4d41-9ae3-519af428720a"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/datastudio https://www.googleapis.com/auth/datastudio.readonly https://www.googleapis.com/auth/userinfo.profile",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://datastudio.googleapis.com/v1"
+    }
+  ]
+}
