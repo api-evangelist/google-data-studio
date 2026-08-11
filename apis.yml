@@ -172,9 +172,9 @@ common:
   - type: OAuthScopes
     url: scopes/google-data-studio-scopes.yml
   - type: OpenAPI
-    url: openapi/google-data-studio-api-openapi.yml
+    url: openapi/_original/google-data-studio-api-openapi.yml
   - type: OpenAPI
-    url: openapi/google-data-studio-linking-api-openapi.yml
+    url: openapi/_original/google-data-studio-linking-api-openapi.yml
   - type: JSONSchema
     url: json-schema/google-data-studio-asset-schema.json
   - type: JSONSchema
