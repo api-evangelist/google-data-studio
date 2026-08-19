@@ -1,0 +1,419 @@
+{
+  "item": [
+    {
+      "id": "80d39639-934b-4ec5-9168-a693a65cff1c",
+      "name": "Assets",
+      "description": {
+        "content": "Operations for searching and listing Looker Studio assets",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4eed4576-408a-4828-b5ef-7fc7ab019cc2",
+          "name": "Google Data Studio Search Looker Studio assets",
+          "request": {
+            "name": "Google Data Studio Search Looker Studio assets",
+            "description": {
+              "content": "Searches the authenticated user's Looker Studio assets. Supports filtering by asset type, title, owner, and trash status. Results are paginated and can be sorted by various fields. Advanced search filters can be used in the title parameter to narrow results by creator, owner, project number, parent workspace, and sharing recipients.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets:search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "assetTypes",
+                  "value": "<string>",
+                  "description": "(Required) The asset type to search. Exactly one asset type must be specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "Search string checked against asset title and description. Supports advanced search syntax including creator:me, creator:user@example.com, owner:me, owner:user@example.com, projectNumber:123456789, parentWorkspace:{uuid}, from:user@example.com, to:user@example.com, and to:group@googlegroups.com."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTrashed",
+                  "value": "false",
+                  "description": "When true, includes only trashed assets. When false or omitted, excludes trashed assets. Defaults to false."
+                },
+                {
+                  "disabled": false,
+                  "key": "owner",
+                  "value": "<email>",
+                  "description": "Filter by the asset owner's email address."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort order for the results. Supported values are title, last_viewed_by_me, create_time, last_accessed_time, and id."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "1000",
+                  "description": "The maximum number of results to return per page. Defaults to 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Token for pagination. Use the nextPageToken or previousPageToken value from a prior response to retrieve subsequent pages."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee9610ea-0cb2-4a65-bc50-7f8df14bd34a",
+              "name": "Successful response containing a list of matching assets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets:search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assetTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTrashed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "owner",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assets\": [\n    {\n      \"assetType\": \"REPORT\",\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"owner\": \"string\",\n      \"creator\": \"string\",\n      \"createTime\": \"2013-11-22T16:35:09.319Z\",\n      \"updateTime\": \"2001-10-30T23:06:18.641Z\",\n      \"description\": \"string\",\n      \"updateByMeTime\": \"2015-07-13T08:39:28.026Z\",\n      \"lastViewByMeTime\": \"2007-09-03T12:53:47.625Z\",\n      \"trashed\": true\n    },\n    {\n      \"assetType\": \"DATA_SOURCE\",\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"owner\": \"string\",\n      \"creator\": \"string\",\n      \"createTime\": \"2006-03-12T06:43:33.775Z\",\n      \"updateTime\": \"1978-10-13T05:26:08.271Z\",\n      \"description\": \"string\",\n      \"updateByMeTime\": \"2022-08-28T06:56:17.167Z\",\n      \"lastViewByMeTime\": \"2004-02-07T21:22:22.324Z\",\n      \"trashed\": true\n    }\n  ],\n  \"nextPageToken\": \"string\",\n  \"previousPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5d00215-c823-4c2b-9aad-fe3af5c30f57",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets:search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assetTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTrashed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "owner",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 8224,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f837ab31-73c2-423d-bf35-a5a220c3541e",
+              "name": "Authentication required or invalid credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets:search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assetTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTrashed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "owner",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 8224,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a59ea617-bbbd-4061-902e-49aaafd82481",
+              "name": "Insufficient permissions. The user may not belong to a Google Workspace or Cloud Identity organization.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets:search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assetTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTrashed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "owner",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 8224,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://datastudio.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/datastudio https://www.googleapis.com/auth/datastudio.readonly https://www.googleapis.com/auth/userinfo.profile"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0dbc942a-0c2a-4d53-8ae9-4423f3238c12",
+    "name": "Google Data Studio Assets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Looker Studio API (formerly Google Data Studio API) enables programmatic management of Looker Studio assets, including searching for assets and managing permissions within Google Workspace or Cloud Identity organizations. The API is only available to users that belong to an organization with Google Workspace or Cloud Identity.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}

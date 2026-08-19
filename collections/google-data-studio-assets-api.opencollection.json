@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Data Studio Assets API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Data Studio Search Looker Studio assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datastudio.googleapis.com/v1/assets:search",
+            "params": [
+              {
+                "name": "assetTypes",
+                "value": "",
+                "type": "query",
+                "description": "The asset type to search. Exactly one asset type must be specified."
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "Search string checked against asset title and description. Supports advanced search syntax including creator:me, creator:user@example.com, owner:me, owner:user@example.com, projectNumber:123456789, parentWorkspace:{uuid}, from:user@example.com, to:user@example.com, and to:group@googlegroups.com."
+              },
+              {
+                "name": "includeTrashed",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes only trashed assets. When false or omitted, excludes trashed assets. Defaults to false."
+              },
+              {
+                "name": "owner",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the asset owner's email address."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for the results. Supported values are title, last_viewed_by_me, create_time, last_accessed_time, and id."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to return per page. Defaults to 1000."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Token for pagination. Use the nextPageToken or previousPageToken value from a prior response to retrieve subsequent pages."
+              }
+            ]
+          },
+          "docs": "Searches the authenticated user's Looker Studio assets. Supports filtering by asset type, title, owner, and trash status. Results are paginated and can be sorted by various fields. Advanced search filters can be used in the title parameter to narrow results by creator, owner, project number, parent workspace, and sharing recipients."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

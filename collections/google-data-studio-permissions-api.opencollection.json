@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Data Studio Assets Permissions API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Permissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Data Studio Get asset permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datastudio.googleapis.com/v1/assets/:assetName/permissions",
+            "params": [
+              {
+                "name": "assetName",
+                "value": "",
+                "type": "path",
+                "description": "The name (ID) of the Looker Studio asset."
+              }
+            ]
+          },
+          "docs": "Retrieves the access controls (permissions) for a specified Looker Studio asset. Returns a Permissions object containing a map of roles to their assigned members, along with an etag for concurrency control."
+        },
+        {
+          "info": {
+            "name": "Google Data Studio Update asset permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://datastudio.googleapis.com/v1/assets/:assetName/permissions",
+            "params": [
+              {
+                "name": "assetName",
+                "value": "",
+                "type": "path",
+                "description": "The name (ID) of the Looker Studio asset."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modifies the access controls for a specified Looker Studio asset. Replaces the permissions with the provided values. The OWNER role cannot be updated through this endpoint. Use the etag field for optimistic concurrency control to detect and fail on concurrent modifications."
+        },
+        {
+          "info": {
+            "name": "Google Data Studio Add members to an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datastudio.googleapis.com/v1/assets/:assetName/permissions:addMembers",
+            "params": [
+              {
+                "name": "assetName",
+                "value": "",
+                "type": "path",
+                "description": "The name (ID) of the Looker Studio asset."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds members to a specified role on a Looker Studio asset. Members cannot be added to the OWNER role. Members are identified by a type prefix such as user:, group:, domain:, or serviceAccount: followed by the identifier."
+        },
+        {
+          "info": {
+            "name": "Google Data Studio Revoke all permissions for members",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datastudio.googleapis.com/v1/assets/:assetName/permissions:revokeAllPermissions",
+            "params": [
+              {
+                "name": "assetName",
+                "value": "",
+                "type": "path",
+                "description": "The name (ID) of the Looker Studio asset."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Removes specified members from all roles on a Looker Studio asset. Owners cannot be removed, and the authorized user cannot remove themselves. Revoking permissions for an invalid member or a member that does not belong to the asset will not cause the request to fail. Well-formed requests always return a 200 OK response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

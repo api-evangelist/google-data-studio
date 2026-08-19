@@ -1,0 +1,287 @@
+{
+  "item": [
+    {
+      "id": "5e992c6f-4db9-4d04-9876-d56b640c8f5c",
+      "name": "Embedding",
+      "description": {
+        "content": "Operations for embedding pre-configured Looker Studio reports",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a2b2d3dc-fdb3-47f1-9dc3-d469e7a381d3",
+          "name": "Google Data Studio Create a pre-configured embedded Looker Studio report",
+          "request": {
+            "name": "Google Data Studio Create a pre-configured embedded Looker Studio report",
+            "description": {
+              "content": "Forwards the user to a pre-configured embedded Looker Studio report using URL parameters. This endpoint provides the same functionality as the standard report creation endpoint but optimized for embedding in iframes. Accepts the same parameters as the /reporting/create endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "embed",
+                "reporting",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "c.reportId",
+                  "value": "<string>",
+                  "description": "The template report ID. If omitted, a blank report is created."
+                },
+                {
+                  "disabled": false,
+                  "key": "c.pageId",
+                  "value": "<string>",
+                  "description": "Specifies the initial page to load in the report."
+                },
+                {
+                  "disabled": false,
+                  "key": "c.mode",
+                  "value": "<string>",
+                  "description": "Sets the initial mode of the report on load. Accepts \"view\" or \"edit\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "c.explain",
+                  "value": "<boolean>",
+                  "description": "Enables the debug/info dialog for troubleshooting."
+                },
+                {
+                  "disabled": false,
+                  "key": "r.reportName",
+                  "value": "<string>",
+                  "description": "Overrides the template report name."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.connector",
+                  "value": "<string>",
+                  "description": "Specifies the connector type for the data source configuration. When set, the data source is completely replaced. When omitted, only specified parameters are updated."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.datasourceName",
+                  "value": "<string>",
+                  "description": "Sets the display name of the data source."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds.ds0.refreshFields",
+                  "value": "<boolean>",
+                  "description": "Controls whether fields are refreshed on configuration change."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dea6694b-fbfd-4057-a85e-b15e933d5dd4",
+              "name": "Redirects the user to the embedded pre-configured Looker Studio report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "embed",
+                    "reporting",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "c.reportId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.pageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.explain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "r.reportName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.connector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.datasourceName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.refreshFields",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The URL of the embedded configured Looker Studio report.",
+                  "key": "Location",
+                  "value": "http://vcAJMlXzDtLUgyCHOGxIN.spyyt3DqCT,T"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c62ff0d8-f79e-4a2f-8afc-be9663fd457c",
+              "name": "Invalid URL parameters. An error dialog is displayed when URL parsing fails.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "embed",
+                    "reporting",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "c.reportId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.pageId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c.explain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "r.reportName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.connector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.datasourceName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ds.ds0.refreshFields",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://datastudio.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/datastudio https://www.googleapis.com/auth/datastudio.readonly https://www.googleapis.com/auth/userinfo.profile"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "266c2068-c48a-42e8-a5f2-f84072d7baff",
+    "name": "Google Data Studio Assets Embedding API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Looker Studio API (formerly Google Data Studio API) enables programmatic management of Looker Studio assets, including searching for assets and managing permissions within Google Workspace or Cloud Identity organizations. The API is only available to users that belong to an organization with Google Workspace or Cloud Identity.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}
