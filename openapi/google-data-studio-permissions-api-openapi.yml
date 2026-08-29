@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Data Studio Assets Permissions API
+  title: Google Data Studio Permissions API
   description: The Looker Studio API (formerly Google Data Studio API) enables programmatic management of Looker Studio assets, including searching for assets and managing permissions within Google Workspace or Cloud Identity organizations. The API is only available to users that belong to an organization with Google Workspace or Cloud Identity.
   version: v1
   contact:
@@ -195,29 +195,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Member:
-      type: string
-      description: 'A member identifier with a type prefix. Supported prefixes are user: (Google account), group: (Google Group), domain: (organization domain), serviceAccount: (Cloud service account), and the special value allUsers (anyone with the link).'
-      examples:
-      - user:gus@gmail.com
-      - group:api@googlegroups.com
-      - domain:example.com
-      - serviceAccount:sa@project.iam.gserviceaccount.com
-      - allUsers
-    AddMembersRequest:
-      type: object
-      description: Request to add members to a specific role on an asset.
-      required:
-      - role
-      - members
-      properties:
-        role:
-          $ref: '#/components/schemas/Role'
-        members:
-          type: array
-          description: The members to add to the specified role.
-          items:
-            $ref: '#/components/schemas/Member'
     Error:
       type: object
       description: Error response from the API.
@@ -234,15 +211,24 @@ components:
             status:
               type: string
               description: The error status code.
-    Role:
+    Member:
       type: string
-      description: A role that can be assigned to members on a Looker Studio asset.
-      enum:
-      - VIEWER
-      - EDITOR
-      - OWNER
-      - LINK_VIEWER
-      - LINK_EDITOR
+      description: 'A member identifier with a type prefix. Supported prefixes are user: (Google account), group: (Google Group), domain: (organization domain), serviceAccount: (Cloud service account), and the special value allUsers (anyone with the link).'
+      examples:
+      - user:gus@gmail.com
+      - group:api@googlegroups.com
+      - domain:example.com
+      - serviceAccount:sa@project.iam.gserviceaccount.com
+      - allUsers
+    RoleMembers:
+      type: object
+      description: A list of members assigned to a particular role.
+      properties:
+        members:
+          type: array
+          description: List of member identifiers. Members are prefixed with their type such as user:email@example.com, group:group@googlegroups.com, domain:example.com, serviceAccount:sa@project.iam.gserviceaccount.com, or the special value allUsers.
+          items:
+            type: string
     RevokeAllPermissionsRequest:
       type: object
       description: Request to revoke all permissions for specified members on an asset.
@@ -254,15 +240,29 @@ components:
           description: A list of members to remove from the asset. Owners cannot be removed. The authorized user cannot remove themselves.
           items:
             $ref: '#/components/schemas/Member'
-    RoleMembers:
+    AddMembersRequest:
       type: object
-      description: A list of members assigned to a particular role.
+      description: Request to add members to a specific role on an asset.
+      required:
+      - role
+      - members
       properties:
+        role:
+          $ref: '#/components/schemas/Role'
         members:
           type: array
-          description: List of member identifiers. Members are prefixed with their type such as user:email@example.com, group:group@googlegroups.com, domain:example.com, serviceAccount:sa@project.iam.gserviceaccount.com, or the special value allUsers.
+          description: The members to add to the specified role.
           items:
-            type: string
+            $ref: '#/components/schemas/Member'
+    Role:
+      type: string
+      description: A role that can be assigned to members on a Looker Studio asset.
+      enum:
+      - VIEWER
+      - EDITOR
+      - OWNER
+      - LINK_VIEWER
+      - LINK_EDITOR
     Permissions:
       type: object
       description: Access control configuration for a Looker Studio asset containing a mapping of roles to their assigned members.

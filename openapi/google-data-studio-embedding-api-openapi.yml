@@ -1,20 +1,18 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Data Studio Assets Embedding API
-  description: The Looker Studio API (formerly Google Data Studio API) enables programmatic management of Looker Studio assets, including searching for assets and managing permissions within Google Workspace or Cloud Identity organizations. The API is only available to users that belong to an organization with Google Workspace or Cloud Identity.
+  title: Google Data Studio Looker Studio Linking Embedding API
+  description: The Looker Studio Linking API provides a reliable interface to configure and forward users directly to a pre-configured Looker Studio report via URL parameters, enabling one-click report creation experiences. It allows developers to create dynamic URLs that direct users to pre-configured reports, eliminating manual data source setup. The API supports configuring report templates, data sources, connectors, and report parameters through URL query parameters.
   version: v1
   contact:
     name: Google
-    url: https://developers.google.com/looker-studio/integrate/api
+    url: https://developers.google.com/looker-studio/integrate/linking-api
   license:
     name: Google APIs Terms of Service
     url: https://developers.google.com/terms
   x-date: '2026-03-04'
 servers:
-- url: https://datastudio.googleapis.com/v1
-  description: Looker Studio API v1 production server
-security:
-- oauth2: []
+- url: https://lookerstudio.google.com
+  description: Looker Studio production server
 tags:
 - name: Embedding
   description: Operations for embedding pre-configured Looker Studio reports
@@ -89,19 +87,6 @@ paths:
                 format: uri
         '400':
           description: Invalid URL parameters. An error dialog is displayed when URL parsing fails.
-components:
-  securitySchemes:
-    oauth2:
-      type: oauth2
-      description: OAuth 2.0 authentication. Requires domain-wide delegation configured by a Google Workspace administrator.
-      flows:
-        authorizationCode:
-          authorizationUrl: https://accounts.google.com/o/oauth2/auth
-          tokenUrl: https://oauth2.googleapis.com/token
-          scopes:
-            https://www.googleapis.com/auth/datastudio: Full read and write access to Looker Studio assets and permissions.
-            https://www.googleapis.com/auth/datastudio.readonly: Read-only access to Looker Studio assets and permissions.
-            https://www.googleapis.com/auth/userinfo.profile: Access to user profile information.
 externalDocs:
-  description: Looker Studio API Documentation
-  url: https://developers.google.com/looker-studio/integrate/api
+  description: Looker Studio Linking API Documentation
+  url: https://developers.google.com/looker-studio/integrate/linking-api

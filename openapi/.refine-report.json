@@ -1,20 +1,27 @@
 {
   "provider": "google-data-studio",
   "sources": [
-    "google-data-studio-assets-api-openapi.yml",
-    "google-data-studio-embedding-api-openapi.yml",
-    "google-data-studio-permissions-api-openapi.yml",
-    "google-data-studio-reports-api-openapi.yml"
+    "_original/google-data-studio-api-openapi.yml",
+    "_original/google-data-studio-linking-api-openapi.yml"
   ],
   "outputs": [
     "google-data-studio-assets-api-openapi.yml",
-    "google-data-studio-embedding-api-openapi.yml",
     "google-data-studio-permissions-api-openapi.yml",
+    "google-data-studio-embedding-api-openapi.yml",
     "google-data-studio-reports-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "google-data-studio-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "google-data-studio-linking-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "google-data-studio-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-data-studio-embedding-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-data-studio-permissions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-data-studio-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

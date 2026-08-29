@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Data Studio Assets API
   description: The Looker Studio API (formerly Google Data Studio API) enables programmatic management of Looker Studio assets, including searching for assets and managing permissions within Google Workspace or Cloud Identity organizations. The API is only available to users that belong to an organization with Google Workspace or Cloud Identity.
@@ -108,6 +108,28 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    AssetType:
+      type: string
+      description: The type of a Looker Studio asset.
+      enum:
+      - REPORT
+      - DATA_SOURCE
+    Error:
+      type: object
+      description: Error response from the API.
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: The HTTP status code.
+            message:
+              type: string
+              description: A human-readable error message.
+            status:
+              type: string
+              description: The error status code.
     Asset:
       type: object
       description: Represents a Looker Studio asset such as a report or data source.
@@ -156,28 +178,6 @@ components:
       - creator
       - createTime
       - updateTime
-    Error:
-      type: object
-      description: Error response from the API.
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: The HTTP status code.
-            message:
-              type: string
-              description: A human-readable error message.
-            status:
-              type: string
-              description: The error status code.
-    AssetType:
-      type: string
-      description: The type of a Looker Studio asset.
-      enum:
-      - REPORT
-      - DATA_SOURCE
     SearchAssetsResponse:
       type: object
       description: Response from searching Looker Studio assets.
