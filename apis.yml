@@ -4,6 +4,18 @@ description: >-
   Google Data Studio, now rebranded as Looker Studio, is a free data visualization and business intelligence tool from
   Google that transforms data into customizable, shareable dashboards and reports. It connects to a wide range of data
   sources and supports community connectors and visualizations for extensibility.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
