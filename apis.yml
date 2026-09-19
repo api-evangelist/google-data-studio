@@ -76,6 +76,11 @@ apis:
   - Charts
   - Custom Components
   - JavaScript
+  - Visualization
+  tags_raw:
+  - Charts
+  - Custom Components
+  - JavaScript
   - Visualizations
   properties:
   - type: Documentation
@@ -116,6 +121,8 @@ apis:
   humanURL: https://developers.google.com/looker-studio/integrate/api
   baseURL: https://datastudio.googleapis.com
   tags:
+  - Embeddings
+  tags_raw:
   - Embedding
   properties:
   - type: OpenAPI
