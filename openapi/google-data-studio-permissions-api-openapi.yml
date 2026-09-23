@@ -194,7 +194,41 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
+  parameters:
+    AssetName:
+      name: assetName
+      in: path
+      required: true
+      description: The name (ID) of the Looker Studio asset.
+      schema:
+        type: string
   schemas:
+    AddMembersRequest:
+      type: object
+      description: Request to add members to a specific role on an asset.
+      required:
+      - role
+      - members
+      properties:
+        role:
+          $ref: '#/components/schemas/Role'
+        members:
+          type: array
+          description: The members to add to the specified role.
+          items:
+            $ref: '#/components/schemas/Member'
+    Permissions:
+      type: object
+      description: Access control configuration for a Looker Studio asset containing a mapping of roles to their assigned members.
+      properties:
+        permissions:
+          type: object
+          description: A map of role names to their member lists.
+          additionalProperties:
+            $ref: '#/components/schemas/RoleMembers'
+        etag:
+          type: string
+          description: Etag for optimistic concurrency control. Used to detect and fail on concurrent modifications.
     Error:
       type: object
       description: Error response from the API.
@@ -220,15 +254,6 @@ components:
       - domain:example.com
       - serviceAccount:sa@project.iam.gserviceaccount.com
       - allUsers
-    RoleMembers:
-      type: object
-      description: A list of members assigned to a particular role.
-      properties:
-        members:
-          type: array
-          description: List of member identifiers. Members are prefixed with their type such as user:email@example.com, group:group@googlegroups.com, domain:example.com, serviceAccount:sa@project.iam.gserviceaccount.com, or the special value allUsers.
-          items:
-            type: string
     RevokeAllPermissionsRequest:
       type: object
       description: Request to revoke all permissions for specified members on an asset.
@@ -240,20 +265,6 @@ components:
           description: A list of members to remove from the asset. Owners cannot be removed. The authorized user cannot remove themselves.
           items:
             $ref: '#/components/schemas/Member'
-    AddMembersRequest:
-      type: object
-      description: Request to add members to a specific role on an asset.
-      required:
-      - role
-      - members
-      properties:
-        role:
-          $ref: '#/components/schemas/Role'
-        members:
-          type: array
-          description: The members to add to the specified role.
-          items:
-            $ref: '#/components/schemas/Member'
     Role:
       type: string
       description: A role that can be assigned to members on a Looker Studio asset.
@@ -263,26 +274,15 @@ components:
       - OWNER
       - LINK_VIEWER
       - LINK_EDITOR
-    Permissions:
+    RoleMembers:
       type: object
-      description: Access control configuration for a Looker Studio asset containing a mapping of roles to their assigned members.
+      description: A list of members assigned to a particular role.
       properties:
-        permissions:
-          type: object
-          description: A map of role names to their member lists.
-          additionalProperties:
-            $ref: '#/components/schemas/RoleMembers'
-        etag:
-          type: string
-          description: Etag for optimistic concurrency control. Used to detect and fail on concurrent modifications.
-  parameters:
-    AssetName:
-      name: assetName
-      in: path
-      required: true
-      description: The name (ID) of the Looker Studio asset.
-      schema:
-        type: string
+        members:
+          type: array
+          description: List of member identifiers. Members are prefixed with their type such as user:email@example.com, group:group@googlegroups.com, domain:example.com, serviceAccount:sa@project.iam.gserviceaccount.com, or the special value allUsers.
+          items:
+            type: string
   securitySchemes:
     oauth2:
       type: oauth2

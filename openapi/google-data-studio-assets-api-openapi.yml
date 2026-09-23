@@ -108,12 +108,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    AssetType:
-      type: string
-      description: The type of a Looker Studio asset.
-      enum:
-      - REPORT
-      - DATA_SOURCE
     Error:
       type: object
       description: Error response from the API.
@@ -130,6 +124,21 @@ components:
             status:
               type: string
               description: The error status code.
+    SearchAssetsResponse:
+      type: object
+      description: Response from searching Looker Studio assets.
+      properties:
+        assets:
+          type: array
+          description: The list of assets matching the search criteria.
+          items:
+            $ref: '#/components/schemas/Asset'
+        nextPageToken:
+          type: string
+          description: Token to retrieve the next page of results. Only present when results exceed the page size.
+        previousPageToken:
+          type: string
+          description: Token to retrieve the previous page of results. Empty string indicates the beginning of the result set.
     Asset:
       type: object
       description: Represents a Looker Studio asset such as a report or data source.
@@ -178,21 +187,12 @@ components:
       - creator
       - createTime
       - updateTime
-    SearchAssetsResponse:
-      type: object
-      description: Response from searching Looker Studio assets.
-      properties:
-        assets:
-          type: array
-          description: The list of assets matching the search criteria.
-          items:
-            $ref: '#/components/schemas/Asset'
-        nextPageToken:
-          type: string
-          description: Token to retrieve the next page of results. Only present when results exceed the page size.
-        previousPageToken:
-          type: string
-          description: Token to retrieve the previous page of results. Empty string indicates the beginning of the result set.
+    AssetType:
+      type: string
+      description: The type of a Looker Studio asset.
+      enum:
+      - REPORT
+      - DATA_SOURCE
   securitySchemes:
     oauth2:
       type: oauth2
