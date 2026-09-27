@@ -194,14 +194,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
-  parameters:
-    AssetName:
-      name: assetName
-      in: path
-      required: true
-      description: The name (ID) of the Looker Studio asset.
-      schema:
-        type: string
   schemas:
     AddMembersRequest:
       type: object
@@ -217,18 +209,33 @@ components:
           description: The members to add to the specified role.
           items:
             $ref: '#/components/schemas/Member'
-    Permissions:
+    RoleMembers:
       type: object
-      description: Access control configuration for a Looker Studio asset containing a mapping of roles to their assigned members.
+      description: A list of members assigned to a particular role.
       properties:
-        permissions:
-          type: object
-          description: A map of role names to their member lists.
-          additionalProperties:
-            $ref: '#/components/schemas/RoleMembers'
-        etag:
-          type: string
-          description: Etag for optimistic concurrency control. Used to detect and fail on concurrent modifications.
+        members:
+          type: array
+          description: List of member identifiers. Members are prefixed with their type such as user:email@example.com, group:group@googlegroups.com, domain:example.com, serviceAccount:sa@project.iam.gserviceaccount.com, or the special value allUsers.
+          items:
+            type: string
+    Member:
+      type: string
+      description: 'A member identifier with a type prefix. Supported prefixes are user: (Google account), group: (Google Group), domain: (organization domain), serviceAccount: (Cloud service account), and the special value allUsers (anyone with the link).'
+      examples:
+      - user:gus@gmail.com
+      - group:api@googlegroups.com
+      - domain:example.com
+      - serviceAccount:sa@project.iam.gserviceaccount.com
+      - allUsers
+    Role:
+      type: string
+      description: A role that can be assigned to members on a Looker Studio asset.
+      enum:
+      - VIEWER
+      - EDITOR
+      - OWNER
+      - LINK_VIEWER
+      - LINK_EDITOR
     Error:
       type: object
       description: Error response from the API.
@@ -245,15 +252,18 @@ components:
             status:
               type: string
               description: The error status code.
-    Member:
-      type: string
-      description: 'A member identifier with a type prefix. Supported prefixes are user: (Google account), group: (Google Group), domain: (organization domain), serviceAccount: (Cloud service account), and the special value allUsers (anyone with the link).'
-      examples:
-      - user:gus@gmail.com
-      - group:api@googlegroups.com
-      - domain:example.com
-      - serviceAccount:sa@project.iam.gserviceaccount.com
-      - allUsers
+    Permissions:
+      type: object
+      description: Access control configuration for a Looker Studio asset containing a mapping of roles to their assigned members.
+      properties:
+        permissions:
+          type: object
+          description: A map of role names to their member lists.
+          additionalProperties:
+            $ref: '#/components/schemas/RoleMembers'
+        etag:
+          type: string
+          description: Etag for optimistic concurrency control. Used to detect and fail on concurrent modifications.
     RevokeAllPermissionsRequest:
       type: object
       description: Request to revoke all permissions for specified members on an asset.
@@ -265,24 +275,14 @@ components:
           description: A list of members to remove from the asset. Owners cannot be removed. The authorized user cannot remove themselves.
           items:
             $ref: '#/components/schemas/Member'
-    Role:
-      type: string
-      description: A role that can be assigned to members on a Looker Studio asset.
-      enum:
-      - VIEWER
-      - EDITOR
-      - OWNER
-      - LINK_VIEWER
-      - LINK_EDITOR
-    RoleMembers:
-      type: object
-      description: A list of members assigned to a particular role.
-      properties:
-        members:
-          type: array
-          description: List of member identifiers. Members are prefixed with their type such as user:email@example.com, group:group@googlegroups.com, domain:example.com, serviceAccount:sa@project.iam.gserviceaccount.com, or the special value allUsers.
-          items:
-            type: string
+  parameters:
+    AssetName:
+      name: assetName
+      in: path
+      required: true
+      description: The name (ID) of the Looker Studio asset.
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

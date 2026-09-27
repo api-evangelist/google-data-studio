@@ -108,6 +108,12 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    AssetType:
+      type: string
+      description: The type of a Looker Studio asset.
+      enum:
+      - REPORT
+      - DATA_SOURCE
     Error:
       type: object
       description: Error response from the API.
@@ -187,12 +193,6 @@ components:
       - creator
       - createTime
       - updateTime
-    AssetType:
-      type: string
-      description: The type of a Looker Studio asset.
-      enum:
-      - REPORT
-      - DATA_SOURCE
   securitySchemes:
     oauth2:
       type: oauth2
