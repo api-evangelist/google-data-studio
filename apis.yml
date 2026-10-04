@@ -178,6 +178,9 @@ apis:
   - type: Documentation
     url: https://developers.google.com/looker-studio/integrate/linking-api
 common:
+  - type: CapabilityMap
+    url: capabilities/google-data-studio-capability-edges.yml
+    name: Google Data Studio Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/google-data-studio/overview
   - type: AgenticAccess
