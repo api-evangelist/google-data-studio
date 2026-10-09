@@ -304,3 +304,71 @@ plans:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - seat
+  - subscription
+  units:
+  - negotiated
+  - rate
+  - seat
+  - token
+  plans:
+  - name: Looker Studio (Free)
+    access: freemium
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Looker Studio Pro
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - month
+  - name: Looker Standard
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    - rate
+    periods:
+    - month
+    - year
+  - name: Looker Enterprise
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    - rate
+    periods:
+    - month
+    - year
+  - name: Looker Embed
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    - rate
+    periods:
+    - month
+    - year
+  - name: Conversational Analytics (Data Tokens)
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - token
+    periods:
+    - month
+    - per-use
