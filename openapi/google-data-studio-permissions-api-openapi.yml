@@ -195,22 +195,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      type: object
-      description: Error response from the API.
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: The HTTP status code.
-            message:
-              type: string
-              description: A human-readable error message.
-            status:
-              type: string
-              description: The error status code.
     Permissions:
       type: object
       description: Access control configuration for a Looker Studio asset containing a mapping of roles to their assigned members.
@@ -232,26 +216,31 @@ components:
       - OWNER
       - LINK_VIEWER
       - LINK_EDITOR
-    RoleMembers:
+    Error:
       type: object
-      description: A list of members assigned to a particular role.
+      description: Error response from the API.
       properties:
-        members:
-          type: array
-          description: List of member identifiers. Members are prefixed with their type such as user:email@example.com, group:group@googlegroups.com, domain:example.com, serviceAccount:sa@project.iam.gserviceaccount.com, or the special value allUsers.
-          items:
-            type: string
-    RevokeAllPermissionsRequest:
-      type: object
-      description: Request to revoke all permissions for specified members on an asset.
-      required:
-      - members
-      properties:
-        members:
-          type: array
-          description: A list of members to remove from the asset. Owners cannot be removed. The authorized user cannot remove themselves.
-          items:
-            $ref: '#/components/schemas/Member'
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: The HTTP status code.
+            message:
+              type: string
+              description: A human-readable error message.
+            status:
+              type: string
+              description: The error status code.
+    Member:
+      type: string
+      description: 'A member identifier with a type prefix. Supported prefixes are user: (Google account), group: (Google Group), domain: (organization domain), serviceAccount: (Cloud service account), and the special value allUsers (anyone with the link).'
+      examples:
+      - user:gus@gmail.com
+      - group:api@googlegroups.com
+      - domain:example.com
+      - serviceAccount:sa@project.iam.gserviceaccount.com
+      - allUsers
     AddMembersRequest:
       type: object
       description: Request to add members to a specific role on an asset.
@@ -266,15 +255,26 @@ components:
           description: The members to add to the specified role.
           items:
             $ref: '#/components/schemas/Member'
-    Member:
-      type: string
-      description: 'A member identifier with a type prefix. Supported prefixes are user: (Google account), group: (Google Group), domain: (organization domain), serviceAccount: (Cloud service account), and the special value allUsers (anyone with the link).'
-      examples:
-      - user:gus@gmail.com
-      - group:api@googlegroups.com
-      - domain:example.com
-      - serviceAccount:sa@project.iam.gserviceaccount.com
-      - allUsers
+    RevokeAllPermissionsRequest:
+      type: object
+      description: Request to revoke all permissions for specified members on an asset.
+      required:
+      - members
+      properties:
+        members:
+          type: array
+          description: A list of members to remove from the asset. Owners cannot be removed. The authorized user cannot remove themselves.
+          items:
+            $ref: '#/components/schemas/Member'
+    RoleMembers:
+      type: object
+      description: A list of members assigned to a particular role.
+      properties:
+        members:
+          type: array
+          description: List of member identifiers. Members are prefixed with their type such as user:email@example.com, group:group@googlegroups.com, domain:example.com, serviceAccount:sa@project.iam.gserviceaccount.com, or the special value allUsers.
+          items:
+            type: string
   parameters:
     AssetName:
       name: assetName
