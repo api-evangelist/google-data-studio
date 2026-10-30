@@ -1,4 +1,4 @@
-# Google Data Studio (google-data-studio)
+# Google Data Studio
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,154 +66,167 @@
 
 Google Data Studio, now rebranded as Looker Studio, is a free data visualization and business intelligence tool from Google that transforms data into customizable, shareable dashboards and reports. It connects to a wide range of data sources and supports community connectors and visualizations for extensibility.
 
-**APIs.json:** [https://lookerstudio.google.com](https://lookerstudio.google.com)
+**Areas:** Analytics · Business Intelligence · Dashboards · Data · Reporting · Visualization
 
-## Scope
+## Google Data Studio on APIs.io
 
-- **Type:** Index
+Everything profiled for Google Data Studio is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-data-studio/](https://apis.io/providers/google-data-studio/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Analytics
-- Business Intelligence
-- Dashboards
-- Data
-- Reporting
-- Visualization
+- [Looker Studio Community Connectors](https://apis.io/apis/google-data-studio/looker-studio-community-connectors/) — Community Connectors enable direct connections from Looker Studio to any internet-accessible data source using Google Apps Script. Developers implement…
+- [Looker Studio Community Visualizations](https://apis.io/apis/google-data-studio/looker-studio-community-visualizations/) — Community Visualizations allow developers to build and share custom JavaScript visualizations in Looker Studio using the dscc helper library, extending the…
+- [Google Data Studio Assets API](https://apis.io/apis/google-data-studio/google-data-studio-assets-api/) — Operations for searching and listing Looker Studio assets
+- [Google Data Studio Embedding API](https://apis.io/apis/google-data-studio/google-data-studio-embedding-api/) — Operations for embedding pre-configured Looker Studio reports
+- [Google Data Studio Permissions API](https://apis.io/apis/google-data-studio/google-data-studio-permissions-api/) — Operations for managing access controls on Looker Studio assets
+- [Google Data Studio Reports API](https://apis.io/apis/google-data-studio/google-data-studio-reports-api/) — Operations for creating and configuring pre-built Looker Studio reports
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Google Data Studio API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Looker Studio API enables programmatic management of Looker Studio assets, including searching for assets and managing permissions within Google Workspace or Cloud Identity organizations.
+- [Google Data Studio Agentic Access](https://apis.io/agentic-access/google-data-studio/google-data-studio-agentic-access/)
 
-- **Human URL:** [https://developers.google.com/looker-studio/integrate/api](https://developers.google.com/looker-studio/integrate/api)
-- **Base URL:** `https://datastudio.googleapis.com`
+#### JSON Schema (5)
 
-#### Tags
+The data models the API reads and writes.
 
-- Assets
-- Data Sources
-- Permissions
-- Reports
+- [Looker Studio Asset](https://apis.io/schemas/google-data-studio/google-data-studio-asset/)
+- [Looker Studio Community Connector](https://apis.io/schemas/google-data-studio/google-data-studio-connector/)
+- [Looker Studio Data Source](https://apis.io/schemas/google-data-studio/google-data-studio-datasource/)
+- [Looker Studio Permissions](https://apis.io/schemas/google-data-studio/google-data-studio-permissions/)
+- [Looker Studio Report](https://apis.io/schemas/google-data-studio/google-data-studio-report/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://developers.google.com/looker-studio/integrate/api)
-- [OpenAPI](openapi/google-data-studio-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/google-data-studio-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-data-studio-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [OpenAPI](https://datastudio.googleapis.com/$discovery/rest?version=v1) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Reference](https://developers.google.com/looker-studio/integrate/api/reference)
-- [Authentication](https://developers.google.com/looker-studio/integrate/api)
-- [Changelog](https://developers.google.com/looker-studio/integrate/api/changelog)
+Linked-data contexts for the provider's vocabulary.
 
-### Looker Studio Linking API
+- [Google Data Studio Context](https://apis.io/jsonld/google-data-studio/google-data-studio-context/)
 
-The Linking API provides a reliable interface to configure and forward users directly to a pre-configured Looker Studio report via URL parameters, enabling one-click report creation experiences.
+#### Collections (10)
 
-- **Human URL:** [https://developers.google.com/looker-studio/integrate/linking-api](https://developers.google.com/looker-studio/integrate/linking-api)
+Postman and Open Collection request collections.
 
-#### Tags
+- [Google Data Studio API](https://apis.io/collections/google-data-studio/open-google-data-studio-api/)
+- [Google Data Studio Assets API](https://apis.io/collections/google-data-studio/open-google-data-studio-assets-api/)
+- [Google Data Studio Assets Embedding API](https://apis.io/collections/google-data-studio/open-google-data-studio-embedding-api/)
+- [Google Data Studio Looker Studio Linking API](https://apis.io/collections/google-data-studio/open-google-data-studio-linking-api/)
+- [Google Data Studio Assets Permissions API](https://apis.io/collections/google-data-studio/open-google-data-studio-permissions-api/)
+- [Google Data Studio Assets Reports API](https://apis.io/collections/google-data-studio/open-google-data-studio-reports-api/)
+- [Google Data Studio Assets API](https://apis.io/collections/google-data-studio/postman-google-data-studio-assets-api/)
+- [Google Data Studio Assets Embedding API](https://apis.io/collections/google-data-studio/postman-google-data-studio-embedding-api/)
+- [Google Data Studio Assets Permissions API](https://apis.io/collections/google-data-studio/postman-google-data-studio-permissions-api/)
+- [Google Data Studio Assets Reports API](https://apis.io/collections/google-data-studio/postman-google-data-studio-reports-api/)
 
-- Embedding
-- Integration
-- Linking
-- Reports
+#### Governance rules (1)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://developers.google.com/looker-studio/integrate/linking-api)
-- [OpenAPI](openapi/google-data-studio-linking-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/google-data-studio-linking-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-data-studio-linking-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Google Data Studio — jsonschema rules](https://apis.io/rules/google-data-studio/google-data-studio-jsonschema-spectral-rules/)
 
-### Looker Studio Community Connectors
+#### Security (3)
 
-Community Connectors enable direct connections from Looker Studio to any internet-accessible data source using Google Apps Script. Developers implement getAuthType, getConfig, getSchema, and getData functions to build custom connectors.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://developers.google.com/looker-studio/connector](https://developers.google.com/looker-studio/connector)
+- [Google Data Studio Authentication](https://apis.io/security/google-data-studio/google-data-studio-authentication/)
+- [Google Data Studio Domain Security](https://apis.io/security/google-data-studio/google-data-studio-domain-security/)
+- [Google Data Studio Vulnerability Disclosure](https://apis.io/security/google-data-studio/google-data-studio-vulnerability-disclosure/)
 
-#### Tags
+#### OAuth scopes (1)
 
-- Apps Script
-- Connectors
-- Data Sources
-- Integration
+The permissions the API asks for.
 
-#### Properties
+- [Google Data Studio Scopes](https://apis.io/scopes/google-data-studio/google-data-studio-scopes/)
 
-- [Documentation](https://developers.google.com/looker-studio/connector)
-- [Reference](https://developers.google.com/looker-studio/connector/reference)
-- [Getting Started](https://developers.google.com/looker-studio/connector/build)
-- [Changelog](https://developers.google.com/looker-studio/connector/changelog)
-- [Codelabs](https://codelabs.developers.google.com/codelabs/community-connectors)
-- [Postman Collection](collections/google-data-studio-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-data-studio-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/google-data-studio-linking-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-data-studio-linking-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Looker Studio Community Visualizations
+Published plans, tiers and prices.
 
-Community Visualizations allow developers to build and share custom JavaScript visualizations in Looker Studio using the dscc helper library, extending the platform with custom chart types and visual components.
+- [Google Data Studio Plans Pricing](https://apis.io/plans/google-data-studio/google-data-studio-plans-pricing/)
 
-- **Human URL:** [https://developers.google.com/looker-studio/visualization](https://developers.google.com/looker-studio/visualization)
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Charts
-- Custom Components
-- JavaScript
-- Visualizations
+- [Google Data Studio Rate Limits](https://apis.io/rate-limits/google-data-studio/google-data-studio-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://developers.google.com/looker-studio/visualization)
-- [Getting Started](https://developers.google.com/looker-studio/visualization/get-started)
-- [Reference](https://developers.google.com/looker-studio/visualization/library-reference)
-- [Libraries](https://developers.google.com/looker-studio/visualization/library)
-- [Codelabs](https://codelabs.developers.google.com/codelabs/community-visualization)
-- [Open  Source](https://developers.google.com/looker-studio/visualization/open-source)
-- [Postman Collection](collections/google-data-studio-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-data-studio-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/google-data-studio-linking-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-data-studio-linking-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-## Common Properties
+- [Google Data Studio Finops](https://apis.io/finops/google-data-studio/google-data-studio-finops/)
 
-- [OpenAPI](openapi/google-data-studio-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [OpenAPI](openapi/google-data-studio-linking-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [J S O N  Schema](json-schema/google-data-studio-asset-schema.json)
-- [J S O N  Schema](json-schema/google-data-studio-permissions-schema.json)
-- [J S O N  Schema](json-schema/google-data-studio-connector-schema.json)
-- [J S O N  Schema](json-schema/google-data-studio-report-schema.json)
-- [J S O N  Schema](json-schema/google-data-studio-datasource-schema.json)
-- [JSON-LD](json-ld/google-data-studio-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Portal](https://lookerstudio.google.com)
-- [Documentation](https://docs.cloud.google.com/looker/docs/studio)
-- [Getting Started](https://support.google.com/looker-studio/answer/6283323)
-- [Authentication](https://developers.google.com/looker-studio/integrate/api)
-- [Blog](https://cloud.google.com/blog/products/data-analytics)
-- [Status Page](https://status.cloud.google.com/)
-- [Support](https://support.google.com/looker-studio)
-- [Terms of Service](https://support.google.com/looker-studio/answer/7019158)
-- [Privacy Policy](https://policies.google.com/privacy)
-- [GitHub Organization](https://github.com/looker-open-source)
-- [Community](https://www.googlecloudcommunity.com/gc/Looker-Studio/bd-p/looker-studio)
-- [Gallery](https://lookerstudio.google.com/gallery)
-- [Changelog](https://docs.cloud.google.com/looker-studio/docs/release-notes)
-- [Pricing](https://cloud.google.com/looker/pricing)
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://cloud.google.com/looker-studio)
-- [Login](https://lookerstudio.google.com/?requirelogin=1)
-- [Sign Up](https://lookerstudio.google.com)
+- [Documentation](https://docs.cloud.google.com/looker/docs/studio)
+- [Getting started](https://support.google.com/looker-studio/answer/6283323)
+- [Pricing](https://cloud.google.com/looker/pricing)
+- [Support](https://support.google.com/looker-studio)
+- [Changelog](https://docs.cloud.google.com/looker-studio/docs/release-notes)
+- [Blog](https://cloud.google.com/blog/products/data-analytics)
+- [Terms of service](https://support.google.com/looker-studio/answer/7019158)
+- [Privacy policy](https://policies.google.com/privacy)
+- [GitHub](https://github.com/looker-open-source)
+- [Status](https://status.cloud.google.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 48.6** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 53.7 |
+| Contract governance | 9.8 |
+| Operational transparency | 52.6 |
+| Developer ergonomics | 56.0 |
+| Access clarity | 35.5 |
+
+**Agent readiness 30.2** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 36.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/google-data-studio/](https://apis.io/providers/google-data-studio/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Data Studio: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-data-studio/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
